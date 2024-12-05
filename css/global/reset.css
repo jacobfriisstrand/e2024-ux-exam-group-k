@@ -1,0 +1,89 @@
+/* A more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+
+  /* Resets default margins and paddings */
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  /* Remove built-in form typography styles */
+  font: inherit;
+}
+
+html {
+  /* Sets default line-height */
+  line-height: 1.5;
+}
+
+body {
+  /* Sets min-height on the body for mobile devices */
+  min-height: 100svh;
+
+  /* Fallback for desktop */
+  min-height: 100vh;
+
+  /* Make footer stick to bottom */
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+/* Makes images responsive */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+/* Balances headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+p {
+  /* Sets the paragraph max-width to a readable length  */
+  max-width: 65ch; /* Makes the text-wrap more aligned */
+  text-wrap: pretty;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+/* Removes default button styling and adds a pointer cursor */
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+/* Removes default list styling */
+ul,
+ol {
+  list-style: none;
+}

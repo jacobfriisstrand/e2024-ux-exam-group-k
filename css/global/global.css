@@ -1,0 +1,24 @@
+@import "./animations.css";
+@import "./reset.css";
+@import "./variables.css";
+
+.book-card {
+  position: relative;
+  min-height: 400px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 50px;
+}
+
+.loading-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: gray;
+  animation: pulse 1.5s infinite ease-in-out;
+}
