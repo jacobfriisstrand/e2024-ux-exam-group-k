@@ -1,13 +1,16 @@
 import { getBookDetails } from "../services/bookService.js";
 import { loanBook } from "../services/bookService.js";
+import { getAllLoans } from "../services/bookService.js";
+import { getUserProfile } from "../services/userService.js";
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
 
 // Get book ID from URL
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get("id");
 
-// Get user ID from session storage
+// Get user ID and admin status from session storage
 const userId = sessionStorage.getItem("user_id");
+const isAdmin = sessionStorage.getItem("is_admin") === "true"; // Ensure this key is set correctly
 
 // Get DOM elements
 const bookCover = document.getElementById("bookCover");
@@ -34,12 +37,55 @@ async function loadBookDetails(bookId) {
     bookAuthor.textContent = book.author;
     bookYear.textContent = book.publishing_year;
     bookPublisher.textContent = book.publishing_company;
+
+    // If admin, load loans
+    if (isAdmin) {
+      await loadLoans(bookId);
+    }
+
   } catch (error) {
     const errorDisplay = createErrorDisplay(ERROR_MESSAGES.FETCH, () => loadBookDetails(bookId));
     contentContainer.innerHTML = "";
     contentContainer.appendChild(errorDisplay);
   }
 }
+
+async function loadLoans(bookId) {
+  const adminLoansSection = document.getElementById("adminLoansSection");
+  const loansList = document.getElementById("loansList");
+
+  try {
+    const response = await getAllLoans(bookId);
+    const loans = response.loans || []; // Access the loans array
+
+    // Clear previous content
+    loansList.innerHTML = "";
+
+    if (loans.length === 0) {
+      const noLoansMessage = document.createElement("li");
+      noLoansMessage.textContent = "No loans for this book.";
+      loansList.appendChild(noLoansMessage);
+    } else {
+      for (const loan of loans) {
+        const user = await getUserProfile(loan.user_id); // Fetch user profile for each loan
+
+        const loanItem = document.createElement("li");
+        loanItem.textContent = `User Name: ${user.first_name}, Email: ${user.email}, Loan Date: ${loan.loan_date}`;
+        loansList.appendChild(loanItem);
+      }
+    }
+
+    // Show the admin loans section
+    adminLoansSection.style.display = "block";
+  } catch (error) {
+    console.error("Error loading loans:", error);
+    const errorMessage = document.createElement("li");
+    errorMessage.textContent = "Failed to load loans.";
+    errorMessage.classList.add("error");
+    loansList.appendChild(errorMessage);
+  }
+}
+
 
 async function handleLoan() {
   if (!userId) {
