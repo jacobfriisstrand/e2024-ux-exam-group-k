@@ -1,10 +1,14 @@
 
 /* Navigation Styles */
-nav {
+header {
   background-color: var(--green-400);
+}
+
+nav {
   padding: var(--sp-16) var(--sp-24);
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   justify-content: space-between; /* Space between logo and menu */
   align-items: center;
 }
@@ -61,6 +65,7 @@ button#logoutBtn {
   flex-direction: column;
   gap: var(--sp-4);
   cursor: pointer;
+  width: fit-content;
 }
 
 .hamburger span {
