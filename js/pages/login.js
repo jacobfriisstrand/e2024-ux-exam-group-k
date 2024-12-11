@@ -1,4 +1,5 @@
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
+import { login, getUserProfile } from "../services/userService.js";
 
 // Get form and input elements
 const loginForm = document.getElementById("loginForm");
@@ -21,29 +22,20 @@ loginForm.onsubmit = async function (e) {
   }
 
   try {
-    // Create form data
-    const data = new FormData();
-    data.append("email", email.value.trim());
-    data.append("password", password.value);
-
-    // Send login request
-    const response = await fetch("http://localhost:8080/users/login", {
-      method: "POST",
-      body: data,
-    });
-
-    if (!response.ok) {
-      throw new Error("Login failed");
-    }
-
-    const result = await response.json();
+    // Use the userService login function
+    const result = await login(email.value.trim(), password.value);
 
     if (result.user_id) {
+      // Get full user profile
+      const userProfile = await getUserProfile(result.user_id);
+
       // Save user info
       sessionStorage.setItem("user_id", result.user_id);
-      if (email.value === "admin.library@mail.com") {
+      sessionStorage.setItem("user_email", userProfile.email);
+      if (userProfile.email === "admin.library@mail.com") {
         sessionStorage.setItem("is_admin", "true");
       }
+
       // Go to home page
       window.location.href = "index.html";
     } else {

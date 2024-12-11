@@ -1,3 +1,6 @@
+// Import the userService functions
+import { signup, login, getUserProfile } from "../services/userService.js";
+
 // Get form elements
 const signupForm = document.getElementById("signupForm");
 const email = document.getElementById("email");
@@ -25,7 +28,7 @@ const errors = {
 const patterns = {
   email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
   password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-  phone: /^\+?[\d\s-]{10,}$/,
+  phone: /^\d+$/,
   name: /^[a-zA-Z\s-]{2,}$/,
 };
 
@@ -40,27 +43,19 @@ signupForm.onsubmit = async function (e) {
   }
 
   try {
-    // Create form data
-    const data = new FormData();
-    data.append("email", email.value.trim());
-    data.append("password", password.value);
-    data.append("first_name", firstName.value.trim());
-    data.append("last_name", lastName.value.trim());
-    data.append("address", address.value.trim());
-    data.append("phone_number", phone.value.trim());
-    data.append("birth_date", birthDate.value);
+    // Create user data object
+    const userData = {
+      email: email.value.trim(),
+      password: password.value,
+      first_name: firstName.value.trim(),
+      last_name: lastName.value.trim(),
+      address: address.value.trim(),
+      phone_number: phone.value.trim(),
+      birth_date: birthDate.value,
+    };
 
-    // Send signup request
-    const response = await fetch("http://localhost:8080/users", {
-      method: "POST",
-      body: data,
-    });
-
-    if (!response.ok) {
-      throw new Error("Signup failed");
-    }
-
-    const result = await response.json();
+    // Use signup function
+    const result = await signup(userData);
 
     if (result.user_id) {
       // Log in automatically
@@ -160,23 +155,14 @@ function calculateAge(birthDate) {
 // Log in user after successful signup
 async function loginAfterSignup() {
   try {
-    const data = new FormData();
-    data.append("email", email.value.trim());
-    data.append("password", password.value);
+    // Use login function
+    const result = await login(email.value.trim(), password.value);
 
-    const response = await fetch("http://localhost:8080/users/login", {
-      method: "POST",
-      body: data,
-    });
-
-    if (!response.ok) {
-      throw new Error("Auto-login failed");
-    }
-
-    const result = await response.json();
+    const userProfile = await getUserProfile(result.user_id);
 
     if (result.user_id) {
       sessionStorage.setItem("user_id", result.user_id);
+      sessionStorage.setItem("user_email", userProfile.email);
       window.location.href = "index.html";
     } else {
       throw new Error("Auto-login failed");
