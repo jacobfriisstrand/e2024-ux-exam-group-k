@@ -4,20 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/global/global.css" />
+    <script src="js/components/navigation.js" defer></script>
+    <script type="module" src="js/pages/book.js" defer></script>
     <title>Book Details - E-Book Library</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="browse.html">Browse Books</a></li>
-          <li><a href="login.html" class="auth-hide">Login</a></li>
-          <li><a href="signup.html" class="auth-hide">Sign Up</a></li>
-          <li><button id="logoutBtn" class="auth-show">Logout</button></li>
-        </ul>
-      </nav>
-    </header>
+    <header id="navigation-placeholder"></header>
+
 
     <main>
       <section class="book-details">
@@ -49,6 +42,5 @@
       <p>&copy; 2024 E-Book Library. All rights reserved.</p>
     </footer>
 
-    <script type="module" src="js/pages/book.js"></script>
   </body>
 </html>
