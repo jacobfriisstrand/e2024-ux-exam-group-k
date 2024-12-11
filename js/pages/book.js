@@ -44,4 +44,4 @@ function showError(message) {
 }
 
 // Start loading when page loads
-loadBookDetails();
+loadBookDetails(bookId);
