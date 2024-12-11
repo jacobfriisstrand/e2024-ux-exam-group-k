@@ -1,3 +1,36 @@
-h1 {
-  font-size: var(--fs-4xl);
+.hero {
+  background-image: url("/assets/images//index-hero-image.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 80svh;
+  color: var(--text-white);
+
+  h1 {
+    font-size: var(--fs-xxxxlarge-48);
+    font-family: var(--mono);
+  }
+
+  div {
+    z-index: 1;
+    isolation: isolate;
+    position: absolute;
+    bottom: var(--sp-32);
+    left: var(--sp-32);
+    display: grid;
+    gap: var(--spacing-8);
+    gap: var(--sp-16);
+
+    a {
+      width: fit-content;
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.5) 80%);
+  }
 }

@@ -72,6 +72,10 @@ a {
   color: inherit;
 }
 
+fieldset {
+  border: 0;
+}
+
 /* Make sure textareas without a rows attribute are not tiny */
 textarea:not([rows]) {
   min-height: 10em;

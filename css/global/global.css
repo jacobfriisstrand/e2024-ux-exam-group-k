@@ -8,6 +8,31 @@ body {
   background-color: var(--green-100);
   color: var(--text-black);
   font-family: var(--sans);
+
+  display: grid;
+  grid-template-columns: [full-start] 1fr [main] minmax(0, 1200px) 1fr [full-end];
+  gap: var(--sp-16);
+
+  header,
+  footer,
+  main,
+  .full-bleed {
+    grid-column: full;
+    display: grid;
+    grid-template-columns: subgrid;
+    align-content: start;
+
+    > :not(&) {
+      grid-column: main;
+    }
+  }
+}
+
+.primary-button {
+  background-color: var(--green-400);
+  color: var(--background-color);
+  padding: var(--sp-12) var(--sp-20);
+  border-radius: var(--radius-full);
 }
 
 .book-card {
