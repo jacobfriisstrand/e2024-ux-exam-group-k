@@ -87,15 +87,15 @@ button#logoutBtn {
 
 /* Hamburger Open State (Cross) */
 .hamburger.open span:nth-child(1) {
-  transform: translateY(8px) rotate(45deg);
+  transform: rotate(45deg) translate(5px, 5px); /* Rotate and shift */
 }
 
 .hamburger.open span:nth-child(2) {
-  opacity: 0;
+  opacity: 0; /* Hide the middle line */
 }
 
 .hamburger.open span:nth-child(3) {
-  transform: translateY(-8px) rotate(-45deg);
+  transform: rotate(-45deg) translate(5px, -5px); /* Rotate and shift */
 }
 
 

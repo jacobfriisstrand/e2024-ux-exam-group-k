@@ -13,8 +13,8 @@ fetch('navigation.html')
 
     // Show/hide buttons based on user login status
     const userId = sessionStorage.getItem('user_id'); // or localStorage.getItem('user_id');
-    logoutBtn.style.display = userId ? 'block' : 'none';
-    loginBtn.style.display = signupBtn.style.display = userId ? 'none' : 'block';
+    logoutBtn.style.display = userId ? 'inline' : 'none';
+    loginBtn.style.display = signupBtn.style.display = userId ? 'none' : 'inline';
 
     // Toggle the navigation menu and hamburger icon on click
     hamburgerBtn.addEventListener('click', () => {
