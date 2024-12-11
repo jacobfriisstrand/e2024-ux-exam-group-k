@@ -4,24 +4,39 @@ fetch('navigation.html')
   .then(data => {
     document.getElementById('navigation-placeholder').outerHTML = data;
 
-    // Now that the navigation is loaded, add the event listener for the hamburger menu
+    const body = document.body;
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const navList = document.getElementById('navList');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
 
-    // Add event listener for the hamburger button
+    // Show/hide buttons based on user login status
+    const userId = sessionStorage.getItem('user_id'); // or localStorage.getItem('user_id');
+    logoutBtn.style.display = userId ? 'block' : 'none';
+    loginBtn.style.display = signupBtn.style.display = userId ? 'none' : 'block';
+
+    // Toggle the navigation menu and hamburger icon on click
     hamburgerBtn.addEventListener('click', () => {
-      // Toggle the 'show' class on the navigation menu
-      navList.classList.toggle('show');
-
-      // Toggle the 'aria-expanded' attribute on the hamburger button
-      const isExpanded = navList.classList.contains('show');
-      hamburgerBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      const isExpanded = navList.classList.toggle('show');
+      hamburgerBtn.classList.toggle('open', isExpanded);
+      hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+      body.style.overflow = isExpanded ? 'hidden' : '';
     });
 
-    // Add active class after the navigation is inserted
+    // Close the menu if the screen is resized beyond mobile
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) {
+        navList.classList.remove('show');
+        hamburgerBtn.classList.remove('open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+
+    // Highlight the active navigation link
     const currentPath = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
+    document.querySelectorAll('nav a').forEach(link => {
       if (link.getAttribute('href') === currentPath) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
