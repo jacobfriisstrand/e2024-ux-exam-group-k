@@ -100,7 +100,7 @@ async function loanBook(userId, bookId) {
     throw new Error("Simulated API failure");
   }
 
-  return post(`${CONFIG.ENDPOINTS.USERS}/${userId}/books/${bookId}`);
+  return post(`${CONFIG.ENDPOINTS.USERS}/${userId}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
 }
 
 export { getBooks, searchBooks, getBooksByAuthor, getBookDetails, getAllAuthors, getAllPublishers, loanBook };
