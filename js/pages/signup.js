@@ -29,7 +29,7 @@ const patterns = {
   email: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
   password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
   phone: /^\d+$/,
-  name: /^[a-zA-Z\s-]{2,}$/,
+  name: /^[\p{L}\p{M}\p{Pd}.'’\s]+$/u,
 };
 
 // Handle form submission
