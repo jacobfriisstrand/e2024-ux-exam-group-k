@@ -44,7 +44,7 @@ nav ul li {
 }
 
 nav a, #logoutBtn {
-  color: var(--text-white);
+  color: var(--white);
   text-decoration: none;
   font-size: var(--fs-small-18);
 }
@@ -64,7 +64,7 @@ button#logoutBtn {
 }
 
 .hamburger span {
-  background-color: var(--text-white);
+  background-color: var(--white);
   width: 25px;
   height: 3px;
 }

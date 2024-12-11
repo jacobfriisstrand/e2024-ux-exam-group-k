@@ -1,7 +1,7 @@
 /* Base Footer Styles */
 footer {
     background-color: var(--green-400); 
-    color: var(--text-white);
+    color: var(--white);
     text-align: center; 
     padding: var(--sp-12); 
     font-size: var(--fs-small-14); 
