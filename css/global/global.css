@@ -28,3 +28,97 @@ body {
   background: gray;
   animation: pulse 1.5s infinite ease-in-out;
 }
+
+nav {
+  background-color: var(--green-400);
+  padding: var(--sp-16) var(--sp-24);
+  position: relative;
+  display: flex;
+  justify-content: flex-end; /* Align all elements to the right */
+  align-items: center;
+}
+
+/* Align the menu and hamburger icon */
+nav ul {
+  display: flex;
+  gap: var(--sp-32);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end; /* Right-align the links */
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav a, #logoutBtn {
+  color: white;
+  text-decoration: none;
+  font-size: var(--fs-small-18);
+}
+
+button#logoutBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: var(--sp-4);
+  cursor: pointer;
+}
+
+.hamburger span {
+  background-color: white;
+  width: 25px;
+  height: 3px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small Screens: Show hamburger */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: var(--sp-16);
+    position: absolute;
+    top: 60px;
+    right: 0; /* Right-align the dropdown */
+    width: 100%;
+    background-color: var(--green-400);
+    padding: var(--sp-24);
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav ul li {
+    text-align: center;
+  }
+
+  nav a, #logoutBtn {
+    font-size: var(--fs-small-18);
+  }
+}
+
+/* Medium Screens and Above: Remove hamburger, show menu */
+@media (min-width: 768px) {
+  nav ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
