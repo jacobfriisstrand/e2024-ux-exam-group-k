@@ -1,10 +1,10 @@
-// Load the header into the placeholder
-fetch('header.html')
+// Load the navigation into the placeholder
+fetch('navigation.html')
 .then(response => response.text())
 .then(data => {
-  document.getElementById('header-placeholder').outerHTML = data;
+  document.getElementById('navigation-placeholder').outerHTML = data;
 
-  // Add active class after the header is inserted
+  // Add active class after the navigation is inserted
   const currentPath = window.location.pathname.split('/').pop();
   const navLinks = document.querySelectorAll('nav a');
   navLinks.forEach(link => {
@@ -14,4 +14,4 @@ fetch('header.html')
     }
   });
 })
-.catch(error => console.error('Error loading header:', error));
+.catch(error => console.error('Error loading navigation:', error));
