@@ -6,6 +6,9 @@ import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
 const params = new URLSearchParams(window.location.search);
 const bookId = params.get("id");
 
+// Get user ID from session storage
+const userId = sessionStorage.getItem("user_id");
+
 // Get DOM elements
 const bookCover = document.getElementById("bookCover");
 const bookTitle = document.getElementById("bookTitle");
@@ -39,6 +42,11 @@ async function loadBookDetails(bookId) {
 }
 
 async function handleLoan() {
+  if (!userId) {
+    alert("You must be logged in to loan a book.");
+    return;
+  }
+
   try {
     await loanBook(userId, bookId); // Call the loanBook function
     alert("Book loaned successfully!"); // Provide feedback to the user
