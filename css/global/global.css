@@ -11,7 +11,7 @@ body {
 
   display: grid;
   grid-template-columns: [full-start] 1fr [main] minmax(0, 1200px) 1fr [full-end];
-  gap: var(--sp-16);
+  column-gap: var(--sp-16);
 
   .navigation,
   footer,
