@@ -1,41 +1,86 @@
 :root {
-    /*fonts*/
-    --mono: 'Courier New', Courier, monospace;
-    --sans: 'Avenir', sans-serif;
+  /********** Fonts **********/
+  --mono: "Courier New", Courier, monospace;
+  --sans: "Avenir", sans-serif;
 
-    /*fontsize*/
-    --fs-xxsmall-14: clamp(0.875rem, 0.7188rem + 0.5vw, 1rem);  
-    --fs-xsmall-16: clamp(1rem, 0.75rem + 0.5vw, 1.25rem);  
-    --fs-small-18: clamp(1.125rem, 0.8125rem + 0.5vw, 1.5rem);  
-    --fs-medium-20: clamp(1.25rem, 0.875rem + 0.5vw, 1.75rem);  
-    --fs-large-24: clamp(1.5rem, 1rem + 0.5vw, 2rem);  
-    --fs-xlarge-28: clamp(1.75rem, 1.125rem + 0.5vw, 2.25rem);  
-    --fs-xxlarge-32: clamp(2rem, 1.25rem + 0.5vw, 2.5rem);  
-    --fs-xxxlarge-40: clamp(2.5rem, 1.5rem + 0.5vw, 3rem);  
-    --fs-xxxxlarge-48: clamp(3rem, 1.75rem + 0.5vw, 3.5rem);  
+  /********** Font size **********/
+  --fs-xxsmall-14: clamp(0.875rem, 0.7188rem + 0.5vw, 1rem);
+  --fs-xsmall-16: clamp(1rem, 0.75rem + 0.5vw, 1.25rem);
+  --fs-small-18: clamp(1.125rem, 0.8125rem + 0.5vw, 1.5rem);
+  --fs-medium-20: clamp(1.25rem, 0.875rem + 0.5vw, 1.75rem);
+  --fs-large-24: clamp(1.5rem, 1rem + 0.5vw, 2rem);
+  --fs-xlarge-28: clamp(1.75rem, 1.125rem + 0.5vw, 2.25rem);
+  --fs-xxlarge-32: clamp(2rem, 1.25rem + 0.5vw, 2.5rem);
+  --fs-xxxlarge-40: clamp(2.5rem, 1.5rem + 0.5vw, 3rem);
+  --fs-xxxxlarge-48: clamp(3rem, 1.75rem + 0.5vw, 3.5rem);
 
-    /*colors*/
-    --green-400: #2B7A78;
-    --green-300: #3AAFA9;
-    --green-200: #76CEC8;
-    --background-color: #DEF2F1;
-    --text-black: #17252A;
+  /********** Colors **********/
+  --green-400: #2b7a78;
+  --green-300: #3aafa9;
+  --green-200: #76cec8;
+  --background-color: #def2f1;
+  --text-black: #17252a;
 
-    /*spacing*/
-    --sp-4: 0.25rem; 
-    --sp-8: 0.5rem;
-    --sp-12: 0.75rem; 
-    --sp-16: 1rem; 
-    --sp-24: 1.5rem; 
-    --sp-32: 2rem; 
-    --sp-40: 2.5rem; 
-    --sp-48: 3rem; 
-    --sp-64: 4rem; 
-    --sp-80: 5rem; 
-    --sp-100: 6.25rem; 
-    --sp-160: 10rem; 
-    --sp-200: 12.5rem; 
+  /********** Spacing **********/
+  --sp-4: 0.25rem;
+  --sp-8: 0.5rem;
+  --sp-12: 0.75rem;
+  --sp-16: 1rem;
+  --sp-24: 1.5rem;
+  --sp-28: 1.75rem;
+  --sp-32: 2rem;
+  --sp-36: 2.25rem;
+  --sp-40: 2.5rem;
+  --sp-44: 2.75rem;
+  --sp-48: 3rem;
+  --sp-52: 3.25rem;
+  --sp-56: 3.5rem;
+  --sp-60: 3.75rem;
+  --sp-64: 4rem;
+  --sp-68: 4.25rem;
+  --sp-72: 4.5rem;
+  --sp-76: 4.75rem;
+  --sp-80: 5rem;
+  --sp-84: 5.25rem;
+  --sp-88: 5.5rem;
+  --sp-92: 5.75rem;
+  --sp-96: 6rem;
+  --sp-100: 6.25rem;
+  --sp-104: 6.5rem;
+  --sp-108: 6.75rem;
+  --sp-112: 7rem;
+  --sp-116: 7.25rem;
+  --sp-120: 7.5rem;
+  --sp-124: 7.75rem;
+  --sp-128: 8rem;
+  --sp-132: 8.25rem;
+  --sp-136: 8.5rem;
+  --sp-140: 8.75rem;
+  --sp-144: 9rem;
+  --sp-148: 9.25rem;
+  --sp-152: 9.5rem;
+  --sp-156: 9.75rem;
+  --sp-160: 10rem;
+  --sp-200: 12.5rem;
 
-    /*mediaqueries*/
+  /********** Media queries *********
+
+  Only use these media queries.
+
+  @media (min-width: 640px) {
+  }
+
+  @media (min-width: 768px) {
+  }
+
+  @media (min-width: 1024px) {
+  }
+
+  @media (min-width: 1280px) {
   }
   
+  @media (min-width: 1536px) {
+  }
+
+  */
+}

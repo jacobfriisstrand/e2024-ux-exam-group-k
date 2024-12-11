@@ -2,6 +2,12 @@
 @import "./reset.css";
 @import "./variables.css";
 
+body {
+  background-color: var(--background-color);
+  color: var(--text-black);
+  font-family: var(--sans);
+}
+
 .book-card {
   position: relative;
   min-height: 400px;
