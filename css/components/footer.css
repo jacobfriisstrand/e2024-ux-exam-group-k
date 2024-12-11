@@ -1,0 +1,22 @@
+/* Base Footer Styles */
+footer {
+    background-color: var(--green-400); 
+    color: var(--text-white);
+    text-align: center; 
+    padding: var(--sp-12); 
+    font-size: var(--fs-small-14); 
+    width: 100%;
+    box-sizing: border-box; 
+    margin-top: auto; 
+  }
+  
+  /* Media Queries for Larger Screens */
+  @media (min-width: 768px) {
+    footer {
+      padding: var(--sp-16); 
+      font-size: var(--fs-small-16); 
+      text-align: left;
+
+    }
+  }
+  
