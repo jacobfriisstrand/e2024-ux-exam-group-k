@@ -18,9 +18,9 @@
   --green-400: #2b7a78;
   --green-300: #3aafa9;
   --green-200: #76cec8;
-  --background-color: #def2f1;
-  --text-black: #17252a;
-  --text-white: #ffffff;
+  --green-100: #def2f1;
+  --black: #17252a;
+  --white: #f5f7f6;
 
   /********** Spacing **********/
   --sp-4: 0.25rem;

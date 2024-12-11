@@ -5,7 +5,7 @@
 @import "../components/footer.css";
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--green-100);
   color: var(--text-black);
   font-family: var(--sans);
 }
