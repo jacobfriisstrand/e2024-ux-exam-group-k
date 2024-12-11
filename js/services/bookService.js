@@ -103,4 +103,13 @@ async function loanBook(userId, bookId) {
   return post(`${CONFIG.ENDPOINTS.USERS}/${userId}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
 }
 
-export { getBooks, searchBooks, getBooksByAuthor, getBookDetails, getAllAuthors, getAllPublishers, loanBook };
+// Show all Loans as admin
+async function getAllLoans(bookId) {
+  if (CONFIG.SIMULATE_ERROR) {
+    throw new Error("Simulated API failure");
+  }
+
+  return get(`${CONFIG.ENDPOINTS.ADMIN}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
+}
+
+export { getBooks, searchBooks, getBooksByAuthor, getBookDetails, getAllAuthors, getAllPublishers, loanBook, getAllLoans };
