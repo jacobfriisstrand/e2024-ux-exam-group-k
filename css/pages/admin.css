@@ -1,0 +1,77 @@
+body {
+    font-family: var(--sans);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.add-section {
+    background-color: var(--green-200);
+    border-radius: var(--sp-16);
+    padding: var(--sp-32);
+    box-shadow: 0 var(--sp-4) var(--sp-8) rgba(0, 0, 0, var(--opacity-10));
+}
+
+.add-section h1 {
+    font-size: var(--fs-large-24);
+    margin-bottom: var(--sp-24);
+    color: var(--text-black);
+}
+
+.add-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: var(--sp-16);
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: var(--sp-8);
+    display: block;
+    color: var(--text-black);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--sp-12);
+    border: var(--border-width-1) solid var(--color-gray-300);
+    border-radius: var(--sp-8);
+    box-sizing: border-box;
+}
+
+.add-container {
+    display: grid;
+    gap: var(--sp-16);
+    margin-top: var(--sp-64);
+}
+
+@media screen and (min-width: 1024px) {
+    .add-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+button[type="submit"] {
+    background-color: var(--green-400);
+    color: var(--text-white);
+    padding: var(--sp-12);
+    border: none;
+    border-radius: var(--sp-8);
+    cursor: pointer;
+    font-size: var(--fs-medium-20);
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--green-300);
+}
