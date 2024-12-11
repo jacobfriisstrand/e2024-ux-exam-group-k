@@ -14,8 +14,13 @@ async function login(email, password) {
   const result = await response.json();
 
   if (result.user_id) {
+    // Get full user profile
+    const userProfile = await getUserProfile(result.user_id);
+
+    // Store user info
     sessionStorage.setItem("user_id", result.user_id);
-    if (email === "admin.library@mail.com") {
+    sessionStorage.setItem("user_email", userProfile.email);
+    if (userProfile.email === "admin.library@mail.com") {
       sessionStorage.setItem("is_admin", "true");
     }
   }
@@ -34,7 +39,21 @@ async function signup(userData) {
     method: "POST",
     body: data,
   });
-  return await response.json();
+  const result = await response.json();
+
+  if (result.user_id) {
+    // Get full user profile
+    const userProfile = await getUserProfile(result.user_id);
+
+    // Store user info
+    sessionStorage.setItem("user_id", result.user_id);
+    sessionStorage.setItem("user_email", userProfile.email);
+    if (userProfile.email === "admin.library@mail.com") {
+      sessionStorage.setItem("is_admin", "true");
+    }
+  }
+
+  return result;
 }
 
 // Get user profile
@@ -68,6 +87,7 @@ async function deleteAccount(userId) {
 // Logout user
 function logout() {
   sessionStorage.removeItem("user_id");
+  sessionStorage.removeItem("user_email");
   sessionStorage.removeItem("is_admin");
 }
 

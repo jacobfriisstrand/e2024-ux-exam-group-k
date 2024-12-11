@@ -13,7 +13,7 @@ export function createBookCard(book) {
     <article class="book-card">
       <a href="book.html?id=${book.book_id}" class="book-link">
         <img 
-          src="${book.cover || "https://picsum.photos/200"}" 
+          src="${book.cover || "https://picsum.photos/200/300"}" 
           alt="${book.cover ? book.title : "No cover available"}" 
           class="book-cover"
         />
