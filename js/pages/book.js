@@ -70,7 +70,20 @@ async function loadLoans(bookId) {
         const user = await getUserProfile(loan.user_id); // Fetch user profile for each loan
 
         const loanItem = document.createElement("li");
-        loanItem.textContent = `User Name: ${user.first_name}, Email: ${user.email}, Loan Date: ${loan.loan_date}`;
+        loanItem.innerHTML = `
+          <div class="loan-grid">
+            <div class="loan-user">
+              <span class="user-name">${user.first_name}</span>
+              <span class="user-email">${user.email}</span>
+            </div>
+            <div class="loan-date">
+              <span>Loan Date: ${loan.loan_date}</span>
+            </div>
+          </div>
+        `;
+
+
+
         loansList.appendChild(loanItem);
       }
     }

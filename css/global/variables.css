@@ -65,6 +65,10 @@
   --sp-160: 10rem;
   --sp-200: 12.5rem;
 
+
+  /********** Image width **********/
+  --cover-max: 19rem;
+
   /********** Media queries *********
 
   Only use these media queries.
