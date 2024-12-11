@@ -22,6 +22,15 @@
   --black: #17252a;
   --white: #f5f7f6;
 
+  /********** Transition **********/
+  --hover-transition: 0.3s cubic-bezier(0.83, 0, 0.17, 1);
+
+  /********** Border radius **********/
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-full: 9999px;
+
   /********** Spacing **********/
   --sp-4: 0.25rem;
   --sp-8: 0.5rem;

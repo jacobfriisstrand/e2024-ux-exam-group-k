@@ -32,7 +32,13 @@ body {
   background-color: var(--green-400);
   color: var(--background-color);
   padding: var(--sp-12) var(--sp-20);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--hover-transition);
+
+  &:hover {
+    background-color: var(--green-300);
+    transition: background-color var(--hover-transition);
+  }
 }
 
 .book-card {
