@@ -5,7 +5,7 @@
   background-repeat: no-repeat;
   position: relative;
   min-height: 80svh;
-  color: var(--text-white);
+  color: var(--white);
 
   h1 {
     font-size: var(--fs-xxxxlarge-48);
@@ -17,7 +17,7 @@
     isolation: isolate;
     position: absolute;
     bottom: var(--sp-32);
-    left: var(--sp-32);
+    left: 0;
     display: grid;
     gap: var(--spacing-8);
     gap: var(--sp-16);
