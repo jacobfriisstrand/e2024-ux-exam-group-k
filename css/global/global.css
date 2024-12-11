@@ -28,17 +28,27 @@ body {
   background: gray;
   animation: pulse 1.5s infinite ease-in-out;
 }
-
 nav {
   background-color: var(--green-400);
   padding: var(--sp-16) var(--sp-24);
   position: relative;
   display: flex;
-  justify-content: flex-end; /* Align all elements to the right */
+  justify-content: space-between; /* Space between logo and menu */
   align-items: center;
 }
 
-/* Align the menu and hamburger icon */
+.logo-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  width: 120px; /* Set the logo width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Navigation Styles */
 nav ul {
   display: flex;
   gap: var(--sp-32);
