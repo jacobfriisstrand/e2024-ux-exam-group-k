@@ -16,34 +16,41 @@
     flex-direction: column;
     align-items: flex-start;
     gap: var(--sp-24);
+    padding-block: var(--sp-32);
     @media (min-width: 1024px) {
         display: grid;
         grid-template-columns: 1fr 2fr;
     }
   }
   
+  
   .book-image {
     width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    @media (min-width: 1024px) {
+        width: 250px;
+        height: 350px;
+    }
   }
-  
+
   .book-cover {
-    width: 60%;
-    margin: 0 auto;
-    height: auto;
+    width: auto;
+    height: 100%;
     border-radius: var(--sp-8);
     box-shadow: 0 var(--sp-4) var(--sp-12) rgba(0, 0, 0, 0.1);
-    @media (min-width: 768px) {
-        width:50%;
-    }
     @media (min-width: 1024px) {
-        width:100%;
-        max-width: var(--cover-max);
+        width: 100%;
+        height: auto;
     }
   }
   
   .book-info {
     text-align: left;
-    font-size: var(--fs-small-18);
+    font-size: var(--fs-xsmall-14);
     width: 100%;
     @media (min-width: 1024px) {
         margin: auto;
@@ -57,7 +64,7 @@
   .book-info h1 {
     font-size: var(--fs-large-24);
     margin-bottom: var(--sp-12);
-    font-weight: 600;
+    font-weight: var(--fw-bold);
     font-family: var(--mono);
   }
   
@@ -68,13 +75,10 @@
 
   }
   
-  .book-info .year,
-  .book-info .publisher {
+  .book-info .year #bookYear,
+  .book-info .publisher #bookPublisher {
     display: inline-block;
-    font-size: var(--fs-xsmall-16);
-    padding: var(--sp-4) var(--sp-8);
-    border-radius: var(--sp-4);
-    background-color: var(--green-200);
+    font-size: var(--fs-xsmall-14);
     color: var(--text-black);
     margin-right: var(--sp-8);
     box-shadow: 0 var(--sp-2) var(--sp-4) rgba(0, 0, 0, 0.1);
@@ -103,8 +107,13 @@
     border-radius: var(--sp-4);
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
     margin-block: var(--sp-16);
+    @media (min-width: 1024px) {
+        display: flex;
+        flex-direction: row;
+        gap: var( --sp-8);
+        justify-content: center;
+    }
   }
   
   #loanBtn:hover {
@@ -125,7 +134,7 @@
   .admin-loans h2 {
     font-size: var(--fs-medium-20);
     margin-bottom: var(--sp-16);
-    font-weight: 600;
+    font-weight: var(--fw-semibold);
   }
   
   #loansList li {
@@ -144,27 +153,54 @@
     flex-direction: column;
     gap: var(--sp-8);
     width: 100%;
+    @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        > *:nth-child(1){
+          border-right: var(--border-thin) solid var(--black);
+          padding-right: var(--sp-20);
+      }
+    }
+
   }
-  
+
   #loansList .loan-user {
     display: flex;
     flex-direction: column;
     gap: var(--sp-4);
+    @media (min-width: 1024px) {
+      display: grid;
+      grid-template-rows: repeat(2,1fr);
+  }
+    
   }
   
   #loansList .loan-user .user-name {
     font-size: var(--fs-small-18);
-    font-weight: bold;
+    font-weight: var(--fw-bold);
     color: var(--text-black);
+    @media (min-width: 1024px) {
+        grid-row: 1/2;
+        grid-column: span 1;
+    }
   }
   
   #loansList .loan-user .user-email {
-    font-size: var(--fs-xsmall-16);
+    font-size: var(--fs-xsmall-14);
     color: var(--green-400);
   }
   
-  #loansList .loan-date {
-    font-size: var(--fs-xsmall-16);
+  #loansList .loan-date-container {
+    font-size: var(--fs-xsmall-14);
     color: var(--text-black);
     font-style: italic;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: 1024px) {
+      text-align: center;
+      align-self: center;
+      .loan-date{
+        font-size: var(--fs-xsmall-16);
+      }
+    }
   }
