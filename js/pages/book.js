@@ -3,6 +3,7 @@ import { handleLoan } from "../services/bookService.js";
 import { getAllLoans } from "../services/bookService.js";
 import { getUserProfile } from "../services/userService.js";
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
+import { createLoanButton } from "../components/loanButton.js";
 
 // Get book ID from URL
 const params = new URLSearchParams(window.location.search);
@@ -38,11 +39,15 @@ async function loadBookDetails(bookId) {
     bookYear.textContent = book.publishing_year;
     bookPublisher.textContent = book.publishing_company;
 
+    // Replace the loan button
+    const loanButtonContainer = document.getElementById("loanBtnContainer");
+    loanButtonContainer.innerHTML = ""; // Clear existing button
+    loanButtonContainer.appendChild(createLoanButton(bookId));
+
     // If admin, load loans
     if (isAdmin) {
       await loadLoans(bookId);
     }
-
   } catch (error) {
     const errorDisplay = createErrorDisplay(ERROR_MESSAGES.FETCH, () => loadBookDetails(bookId));
     contentContainer.innerHTML = "";
@@ -82,8 +87,6 @@ async function loadLoans(bookId) {
           </div>
         `;
 
-
-
         loansList.appendChild(loanItem);
       }
     }
@@ -98,12 +101,6 @@ async function loadLoans(bookId) {
     loansList.appendChild(errorMessage);
   }
 }
-
-// Attach event listener to the Loan button
-if (loanBtn) {
-  loanBtn.addEventListener("click", () => handleLoan(userId, bookId));
-}
-
 
 // Show error message
 function showError(message) {

@@ -1,4 +1,4 @@
-import { getBooks, searchBooks, getBooksByAuthor, getAllAuthors } from "../services/bookService.js";
+import { getBooks, searchBooks, getBooksByAuthor, getAllAuthors, handleLoan } from "../services/bookService.js";
 import { createBookCard, createLoadingBookCard } from "../utils/domHelpers.js";
 import { createErrorDisplay, disableInteractiveElements, enableInteractiveElements, ERROR_MESSAGES } from "../utils/errorHandling.js";
 
@@ -26,11 +26,12 @@ function displayLoadingPlaceholders(count) {
 
 // Replace placeholder with actual book content
 function replacePlaceholderWithBook(book, index) {
-  const bookCard = booksGrid.querySelector(`.book-card[data-index="${index}"]`);
-  if (bookCard) {
-    const bookContent = createBookCard(book);
-    bookCard.innerHTML = bookContent;
-    bookCard.classList.add("loaded"); // Add class to mark as loaded
+  const existingCard = booksGrid.querySelector(`.book-card[data-index="${index}"]`);
+  if (existingCard) {
+    const newCard = createBookCard(book);
+    newCard.dataset.index = index;
+    newCard.classList.add("loaded");
+    existingCard.replaceWith(newCard);
   }
 }
 
@@ -101,14 +102,11 @@ async function handleSearch() {
     booksGrid.innerHTML = "";
 
     if (books.length === 0) {
-      // Show message if no books match the search
       booksGrid.innerHTML = `<p class="no-results">No book titles matching the search</p>`;
     } else {
-      // Create new book cards directly
       books.forEach((book) => {
-        const bookCard = document.createElement("article");
-        bookCard.className = "book-card loaded";
-        bookCard.innerHTML = createBookCard(book);
+        const bookCard = createBookCard(book);
+        bookCard.classList.add("loaded");
         booksGrid.appendChild(bookCard);
       });
     }
@@ -137,14 +135,11 @@ async function handleAuthorFilter() {
     booksGrid.innerHTML = "";
 
     if (books.length === 0) {
-      // Show message if no books found for author
       booksGrid.innerHTML = `<p class="no-results">No books found for this author</p>`;
     } else {
-      // Create new book cards directly
       books.forEach((book) => {
-        const bookCard = document.createElement("article");
-        bookCard.className = "book-card loaded";
-        bookCard.innerHTML = createBookCard(book);
+        const bookCard = createBookCard(book);
+        bookCard.classList.add("loaded");
         booksGrid.appendChild(bookCard);
       });
     }

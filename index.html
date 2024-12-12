@@ -15,14 +15,22 @@
     <main>
       <section class="hero full-bleed">
         <div>
-          <h1>Welcome to E-Book Library</h1>
+          <header>
+            <h1>Welcome to StoryVault</h1>
+          </header>
           <p>Discover thousands of digital books at your fingertips</p>
           <a class="primary-button" href="/browse.html">Explore Books</a>
         </div>
       </section>
 
-      <section id="featured-books">
-        <h2>Featured Books</h2>
+      <section class="featured-books">
+        <header class="section-header">
+          <h2>Featured Books</h2>
+          <a class="browse-all-link" href="/browse.html">
+            <span>Browse all books</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M16.175 13H4v-2h12.175l-5.6-5.6L12 4l8 8l-8 8l-1.425-1.4z" /></svg>
+          </a>
+        </header>
         <div class="books-grid" aria-live="polite"></div>
       </section>
     </main>

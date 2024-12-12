@@ -95,29 +95,28 @@ async function getAllPublishers() {
 }
 
 // Loan a book
-async function handleLoan(userid, bookid) {
-  if (!userid) {
+async function handleLoan(bookId) {
+  const userId = sessionStorage.getItem("user_id");
+
+  if (!userId) {
     alert("You must be logged in to loan a book.");
-    return;
+    return false;
   }
 
   try {
-    // Simulate error if configured
     if (CONFIG.SIMULATE_ERROR) {
       throw new Error("Simulated API failure");
     }
 
-    // Make the loan API request
-    await post(`${CONFIG.ENDPOINTS.USERS}/${userid}/${CONFIG.ENDPOINTS.BOOKS}/${bookid}`);
-    alert("Book loaned successfully!"); // Provide feedback to the user
-    loanBtn.disabled = true; // Optionally disable the button to prevent duplicate loans
+    await post(`${CONFIG.ENDPOINTS.USERS}/${userId}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
+    alert("Book loaned successfully!");
+    return true;
   } catch (error) {
     console.error("Error loaning book:", error);
     alert("Failed to loan the book. Please try again later.");
+    return false;
   }
 }
-
-
 
 // Show all Loans as admin
 async function getAllLoans(bookId) {

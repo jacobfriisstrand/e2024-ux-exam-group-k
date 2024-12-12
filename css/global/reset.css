@@ -64,7 +64,7 @@ h6 {
 p {
   /* Sets the paragraph max-width to a readable length  */
   max-width: 65ch; /* Makes the text-wrap more aligned */
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 a {

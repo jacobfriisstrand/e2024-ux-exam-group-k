@@ -34,3 +34,27 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0.5) 80%);
   }
 }
+
+.featured-books {
+  .section-header {
+    margin-block: var(--sp-32);
+    display: flex;
+    gap: var(--sp-8);
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  h2 {
+    font-size: var(--fs-xlarge-28);
+  }
+
+  .browse-all-link {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-8);
+  }
+}
