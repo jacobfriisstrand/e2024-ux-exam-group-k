@@ -10,20 +10,30 @@
   h1 {
     font-size: var(--fs-xxxxlarge-48);
     font-family: var(--mono);
+    line-height: var(--lh-tight);
   }
 
-  div {
+  .hero-content {
     z-index: 1;
     isolation: isolate;
     position: absolute;
     bottom: var(--sp-32);
     left: 0;
     display: grid;
-    gap: var(--spacing-8);
-    gap: var(--sp-16);
+    gap: var(--sp-24);
 
     a {
       width: fit-content;
+      font-size: var(--fs-xxsmall-14);
+    }
+
+    p {
+      font-size: var(--fs-xxsmall-14);
+    }
+
+    div {
+      display: grid;
+      gap: var(--sp-8);
     }
   }
 
@@ -41,10 +51,12 @@
     display: flex;
     gap: var(--sp-8);
     flex-direction: column;
+
     justify-content: space-between;
 
     @media (min-width: 768px) {
       flex-direction: row;
+      align-items: center;
     }
   }
 
@@ -56,5 +68,6 @@
     display: flex;
     align-items: center;
     gap: var(--sp-8);
+    height: fit-content;
   }
 }

@@ -1,10 +1,13 @@
 /* Navigation Styles */
 .navigation {
   background-color: var(--green-400);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 nav {
-  padding: var(--sp-32) var(--sp-24);
+  padding-block: var(--sp-16);
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
@@ -79,6 +82,8 @@ button#logoutBtn {
 .hamburger {
   display: flex;
   flex-direction: column;
+  height: var(--sp-24);
+  justify-content: center;
   gap: var(--sp-4);
   cursor: pointer;
   width: fit-content;
@@ -87,7 +92,7 @@ button#logoutBtn {
 .hamburger span {
   background-color: var(--white);
   width: var(--sp-28);
-  height: 3px;
+  height: var(--border-thick);
   transition: all 0.3s ease;
 }
 
