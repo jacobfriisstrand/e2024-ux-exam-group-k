@@ -74,6 +74,8 @@
   --sp-160: 10rem;
   --sp-200: 12.5rem;
 
+  /********** SVG **********/
+  --svg-icon-size: 1em;
 
 /********** Font weight **********/
 --fw-light: 300;
@@ -90,6 +92,9 @@
 
   /********** Image width **********/
   --cover-max: 19rem;
+
+  /********** Book card **********/
+  --book-card-height: 400px;
 
   /********** Media queries *********
 
