@@ -13,6 +13,11 @@ export function createLoanButton(bookId) {
   `;
 
   button.addEventListener("click", async (e) => {
+    if (!isUserLoggedIn()) {
+      createPopover("Please login or sign up to loan books", "warning", button);
+      return;
+    }
+
     try {
       const success = await handleLoan(bookId);
       if (success) {
@@ -36,4 +41,8 @@ function updateButtonToLoaned(button) {
       <path fill="currentColor" d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
     </svg>
   `;
+}
+
+function isUserLoggedIn() {
+  return !!sessionStorage.getItem('user_id');
 }
