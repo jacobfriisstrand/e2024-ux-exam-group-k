@@ -21,6 +21,7 @@
   --green-100: #def2f1;
   --black: #17252a;
   --white: #f5f7f6;
+  --red: rgb(229, 39, 39);
 
   /********** Transition **********/
   --hover-transition: 0.3s cubic-bezier(0.83, 0, 0.17, 1);
