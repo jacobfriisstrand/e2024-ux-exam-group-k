@@ -95,8 +95,8 @@ async function getAllPublishers() {
 }
 
 // Loan a book
-async function handleLoan() {
-  if (!userId) {
+async function handleLoan(userid, bookid) {
+  if (!userid) {
     alert("You must be logged in to loan a book.");
     return;
   }
@@ -108,7 +108,7 @@ async function handleLoan() {
     }
 
     // Make the loan API request
-    await post(`${CONFIG.ENDPOINTS.USERS}/${userId}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
+    await post(`${CONFIG.ENDPOINTS.USERS}/${userid}/${CONFIG.ENDPOINTS.BOOKS}/${bookid}`);
     alert("Book loaned successfully!"); // Provide feedback to the user
     loanBtn.disabled = true; // Optionally disable the button to prevent duplicate loans
   } catch (error) {
@@ -116,6 +116,7 @@ async function handleLoan() {
     alert("Failed to loan the book. Please try again later.");
   }
 }
+
 
 
 // Show all Loans as admin
