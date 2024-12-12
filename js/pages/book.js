@@ -1,5 +1,5 @@
 import { getBookDetails } from "../services/bookService.js";
-import { loanBook } from "../services/bookService.js";
+import { handleLoan } from "../services/bookService.js";
 import { getAllLoans } from "../services/bookService.js";
 import { getUserProfile } from "../services/userService.js";
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
@@ -99,27 +99,11 @@ async function loadLoans(bookId) {
   }
 }
 
-
-async function handleLoan() {
-  if (!userId) {
-    alert("You must be logged in to loan a book.");
-    return;
-  }
-
-  try {
-    await loanBook(userId, bookId); // Call the loanBook function
-    alert("Book loaned successfully!"); // Provide feedback to the user
-    loanBtn.disabled = true; // Optionally disable the button to prevent duplicate loans
-  } catch (error) {
-    console.error("Error loaning book:", error);
-    alert("Failed to loan the book. Please try again later.");
-  }
-}
-
 // Attach event listener to the Loan button
 if (loanBtn) {
-  loanBtn.addEventListener("click", handleLoan);
+  loanBtn.addEventListener("click", () => handleLoan(userId, bookId));
 }
+
 
 // Show error message
 function showError(message) {

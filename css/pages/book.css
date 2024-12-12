@@ -121,6 +121,11 @@
   }
   
   /* Admin loans section */
+
+  #adminLoansSection{
+    padding-block: var(--sp-24);
+  }
+
   #loansList {
     display: flex;
     flex-direction: column;
