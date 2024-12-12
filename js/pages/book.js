@@ -29,7 +29,7 @@ async function loadBookDetails(bookId) {
   try {
     const book = await getBookDetails(bookId);
     // Update page title
-    document.title = `${book.title} - E-Book Library`;
+    document.title = `${book.title} - StoryVault`;
 
     // Update DOM
     bookCover.src = book.cover || "/assets/images/image-not-found.jpg";

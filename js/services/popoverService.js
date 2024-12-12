@@ -1,32 +1,44 @@
 /**
  * Creates and displays a popover message using native popover elements.
+ * Arguments:
+ * - message: The message to display in the popover
+ * - type: The type of popover ('success' or 'error')
+ * - targetElement: Optional target element, defaults to activeElement
  */
-export function createPopover() {
-    // Get the active element as the target
-    const targetElement = document.activeElement;
+export function createPopover(message, type, targetElement = document.activeElement) {
+  // Ensure we have a target element
+  if (!targetElement) {
+    console.error("No target element available for popover");
+    return;
+  }
 
-    // Ensure the target element has the necessary data attributes
-    if (!targetElement || !targetElement.dataset.message || !targetElement.dataset.type) {
-        console.error("Target element is invalid or missing required data attributes.");
-        return;
-    }
+  // Create the popover content
+  const popoverContent = document.createElement("div");
+  popoverContent.id = `${targetElement.id || "popover"}-content`;
+  popoverContent.setAttribute("popover", "");
+  popoverContent.innerText = message;
 
-    // Extract the message and type from data attributes
-    const message = targetElement.dataset.message;
-    const type = targetElement.dataset.type;
+  // Style the popover using CSS classes
+  popoverContent.className = `popover-open popover-${type}`;
 
-    // Create the popover content
-    const popoverContent = document.createElement("div");
-    popoverContent.id = `${targetElement.id || "popover"}-content`;
-    popoverContent.setAttribute("popover", "");
-    popoverContent.innerText = message;
+  // Append the popover to the body
+  document.body.appendChild(popoverContent);
 
-    // Style the popover using CSS classes
-    popoverContent.className = `popover popover-${type}`;
+  // Position in bottom right corner
+  popoverContent.style.position = "fixed";
+  popoverContent.style.bottom = "var(--sp-32)";
+  popoverContent.style.right = "var(--sp-32)";
+  popoverContent.style.left = "auto";
+  popoverContent.style.top = "auto";
 
-    // Append the popover to the target element
-    targetElement.insertAdjacentElement("afterend", popoverContent);
+  // Show the popover
+  popoverContent.showPopover();
 
-    // Associate the target button with the popover
-    targetElement.setAttribute("popovertarget", popoverContent.id);
+  // Auto-hide after 3 seconds
+  setTimeout(() => {
+    popoverContent.classList.remove("popover-open");
+    popoverContent.hidePopover();
+    // Remove the element after hiding
+    setTimeout(() => popoverContent.remove(), 300);
+  }, 5000);
 }

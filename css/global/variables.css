@@ -1,7 +1,7 @@
 :root {
   /********** Fonts **********/
-  --mono: "Courier New", Courier, monospace;
-  --sans: "Avenir", sans-serif;
+  --mono: "Nimbus Mono PS", "Courier New", monospace;
+  --sans: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
 
   /********** Font size **********/
   --fs-xxsmall-14: clamp(0.875rem, 0.7188rem + 0.5vw, 1rem);
