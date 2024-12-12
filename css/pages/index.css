@@ -1,10 +1,19 @@
+h2 {
+  font-size: var(--fs-xlarge-28);
+  font-weight: var(--fw-bold);
+}
+
+section {
+  padding-block: var(--sp-44);
+}
+
 .hero {
   background-image: url("/assets/images//index-hero-image.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  min-height: 80svh;
+  min-height: 70svh;
   color: var(--white);
 
   h1 {
@@ -46,22 +55,22 @@
 }
 
 .featured-books {
-  .section-header {
-    margin-block: var(--sp-32);
-    display: flex;
+  .header-content {
+    margin-bottom: var(--sp-32);
+    display: grid;
     gap: var(--sp-8);
     flex-direction: column;
 
     justify-content: space-between;
 
     @media (min-width: 768px) {
-      flex-direction: row;
-      align-items: center;
+      grid-template-columns: 1fr auto;
+      align-items: end;
     }
-  }
 
-  h2 {
-    font-size: var(--fs-xlarge-28);
+    p {
+      grid-column: 1;
+    }
   }
 
   .browse-all-link {
@@ -69,5 +78,44 @@
     align-items: center;
     gap: var(--sp-8);
     height: fit-content;
+    width: fit-content;
+    padding: var(--sp-8) var(--sp-16);
+    color: var(--white);
+    margin-top: var(--sp-16);
+    background-color: var(--green-400);
+
+    @media (min-width: 768px) {
+      margin-top: 0;
+      background-color: transparent;
+      color: initial;
+      padding: 0;
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+}
+
+.book-of-the-month {
+  background-color: var(--green-200);
+
+  .book-of-the-month-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--sp-64);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+
+      .featured-book {
+        order: -1;
+      }
+    }
+
+    .book-of-the-month-text {
+      display: grid;
+      gap: var(--sp-16);
+      height: fit-content;
+    }
   }
 }
