@@ -26,7 +26,7 @@ export function createPopover(message, type, targetElement = document.activeElem
 
   // Position in bottom right corner
   popoverContent.style.position = "fixed";
-  popoverContent.style.bottom = "var(--sp-32)";
+  popoverContent.style.bottom = "var(--sp-68)";
   popoverContent.style.right = "var(--sp-32)";
   popoverContent.style.left = "auto";
   popoverContent.style.top = "auto";
