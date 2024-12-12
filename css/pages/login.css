@@ -6,8 +6,8 @@
         border: var(--border-width-1) solid var(--color-gray-300);
         border-radius: var(--sp-8);
         box-sizing: border-box;
-        background-color: var(--green-300);
-        border-radius: var(--sp-8);
+        background-color: var(--white);
+        border-radius: var(--sp-28);
         box-shadow: 0 var(--sp-4) var(--sp-12) rgba(0, 0, 0, 0.1);
         width: 70%;
         margin-left: auto;

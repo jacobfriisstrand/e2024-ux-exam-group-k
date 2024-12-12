@@ -74,19 +74,18 @@
   --sp-160: 10rem;
   --sp-200: 12.5rem;
 
+  /********** Font weight **********/
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
 
-/********** Font weight **********/
---fw-light: 300;
---fw-normal: 400;
---fw-medium: 500;
---fw-semibold: 600;
---fw-bold: 700;
---fw-extrabold: 800;
-
-/********** border **********/
---border-thin: 1px;
---border-medium: 2px;
---border-thick: 3px;
+  /********** border **********/
+  --border-thin: 1px;
+  --border-medium: 2px;
+  --border-thick: 3px;
 
   /********** Image width **********/
   --cover-max: 19rem;
