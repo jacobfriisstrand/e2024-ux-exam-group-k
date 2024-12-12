@@ -127,4 +127,4 @@ async function getAllLoans(bookId) {
   return get(`${CONFIG.ENDPOINTS.ADMIN}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
 }
 
-export { getBooks, searchBooks, getBooksByAuthor, getBookDetails, getAllAuthors, getAllPublishers, loanBook, getAllLoans };
+export { getBooks, searchBooks, getBooksByAuthor, getBookDetails, getAllAuthors, getAllPublishers, handleLoan, getAllLoans };
