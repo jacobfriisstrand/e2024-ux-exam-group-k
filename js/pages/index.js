@@ -27,8 +27,8 @@ function displayLoadingPlaceholders(count) {
 // Load and display books
 async function loadBooks() {
   try {
-    displayLoadingPlaceholders(3);
-    const books = await getBooks(3);
+    displayLoadingPlaceholders(4);
+    const books = await getBooks(4);
 
     if (!books || books.length === 0) {
       showError();

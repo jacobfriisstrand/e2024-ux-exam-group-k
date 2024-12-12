@@ -89,6 +89,7 @@ function logout() {
   sessionStorage.removeItem("user_id");
   sessionStorage.removeItem("user_email");
   sessionStorage.removeItem("is_admin");
+  window.location.href = "index.html";
 }
 
 export { login, signup, getUserProfile, updateUserProfile, deleteAccount, logout };
