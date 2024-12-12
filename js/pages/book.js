@@ -76,8 +76,8 @@ async function loadLoans(bookId) {
               <span class="user-name">${user.first_name}</span>
               <span class="user-email">${user.email}</span>
             </div>
-            <div class="loan-date">
-              <span>Loan Date: ${loan.loan_date}</span>
+            <div class="loan-date-container">
+              <span>Loan date</span> <span class="loan-date">${loan.loan_date}</span>
             </div>
           </div>
         `;
