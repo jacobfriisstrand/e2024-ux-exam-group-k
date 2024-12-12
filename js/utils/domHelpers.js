@@ -17,7 +17,7 @@ export function createBookCard(book) {
 
   article.innerHTML = `
     <img 
-      src="${book.cover || "https://via.placeholder.com/200x300/f0f0f0/666666?text=No+Image+Available"}" 
+      src="${book.cover || "/assets/images/image-not-found.jpg"}" 
       alt="${book.cover ? book.title : "No cover available"}" 
       class="book-cover"
     />

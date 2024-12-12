@@ -1,86 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/global/global.css">
-    <link rel="stylesheet" href="css/pages/admin.css">
-    <script src="js/components/navigation.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/global/global.css" />
+    <link rel="stylesheet" href="css/pages/admin.css" />
+    <script type="module" src="js/components/navigation.js" defer></script>
     <script src="js/components/footer.js" defer></script>
     <script type="module" src="js/pages/admin.js" defer></script>
     <title>Admin - E-Book Library</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <header id="navigation-placeholder"></header>
 
     <div class="add-container">
-        <main>
-            <section class="add-section">
-                <h1>Add New Book</h1>
-                <form id="addBookForm" class="add-form" novalidate>
-                    <fieldset>
-                        <legend>Book Details</legend>
-                        <div class="form-group">
-                            <label for="bookTitle">Book Title</label>
-                            <input type="text" id="bookTitle" name="title" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="author">Author</label>
-                            <select id="author" name="author_id" required>
-                                <option value="">Select an author</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="publishingYear">Publishing Year</label>
-                            <input type="text" id="publishingYear" name="publishing_year" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="publishingCompany">Publisher</label>
-                            <select id="publishingCompany" name="publisher_id" required>
-                                <option value="">Select a publisher</option>
-                            </select>
-                        </div>
-                        <button type="submit">Add Book</button>
-                    </fieldset>
-                </form>
-            </section>
+      <main>
+        <section class="add-section">
+          <h1>Add New Book</h1>
+          <form id="addBookForm" class="add-form" novalidate>
+            <fieldset>
+              <legend>Book Details</legend>
+              <div class="form-group">
+                <label for="bookTitle">Book Title</label>
+                <input type="text" id="bookTitle" name="title" required />
+              </div>
+              <div class="form-group">
+                <label for="author">Author</label>
+                <select id="author" name="author_id" required>
+                  <option value="">Select an author</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="publishingYear">Publishing Year</label>
+                <input type="text" id="publishingYear" name="publishing_year" required />
+              </div>
+              <div class="form-group">
+                <label for="publishingCompany">Publisher</label>
+                <select id="publishingCompany" name="publisher_id" required>
+                  <option value="">Select a publisher</option>
+                </select>
+              </div>
+              <button type="submit">Add Book</button>
+            </fieldset>
+          </form>
+        </section>
 
-            <section class="add-section">
-                <h1>Add New Author</h1>
-                <form id="addAuthorForm" class="add-form" novalidate>
-                    <fieldset>
-                        <legend>Author Details</legend>
-                        <div class="form-group">
-                            <label for="authorFirstName">First Name</label>
-                            <input type="text" id="authorFirstName" name="first_name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="authorLastName">Last Name</label>
-                            <input type="text" id="authorLastName" name="last_name" required>
-                        </div>
-                        <button type="submit">Add Author</button>
-                    </fieldset>
-                </form>
-            </section>
+        <section class="add-section">
+          <h1>Add New Author</h1>
+          <form id="addAuthorForm" class="add-form" novalidate>
+            <fieldset>
+              <legend>Author Details</legend>
+              <div class="form-group">
+                <label for="authorFirstName">First Name</label>
+                <input type="text" id="authorFirstName" name="first_name" required />
+              </div>
+              <div class="form-group">
+                <label for="authorLastName">Last Name</label>
+                <input type="text" id="authorLastName" name="last_name" required />
+              </div>
+              <button type="submit">Add Author</button>
+            </fieldset>
+          </form>
+        </section>
 
-            <section class="add-section">
-                <h1>Add New Publisher</h1>
-                <form id="addPublisherForm" class="add-form" novalidate>
-                    <fieldset>
-                        <legend>Publisher Details</legend>
-                        <div class="form-group">
-                            <label for="publisherName">Publisher Name</label>
-                            <input type="text" id="publisherName" name="name" required>
-                        </div>
-                        <button type="submit">Add Publisher</button>
-                    </fieldset>
-                </form>
-            </section>
-        </main>
+        <section class="add-section">
+          <h1>Add New Publisher</h1>
+          <form id="addPublisherForm" class="add-form" novalidate>
+            <fieldset>
+              <legend>Publisher Details</legend>
+              <div class="form-group">
+                <label for="publisherName">Publisher Name</label>
+                <input type="text" id="publisherName" name="name" required />
+              </div>
+              <button type="submit">Add Publisher</button>
+            </fieldset>
+          </form>
+        </section>
+      </main>
     </div>
 
     <footer id="footer-placeholder"></footer>
-
-</body>
+  </body>
 </html>

@@ -32,7 +32,7 @@ async function loadBookDetails(bookId) {
     document.title = `${book.title} - E-Book Library`;
 
     // Update DOM
-    bookCover.src = book.cover || "https://via.placeholder.com/200x300/f0f0f0/666666?text=No+Image+Available";
+    bookCover.src = book.cover || "/assets/images/image-not-found.jpg";
     bookCover.alt = book.title;
     bookTitle.textContent = book.title;
     bookAuthor.textContent = book.author;
