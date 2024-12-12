@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/global/global.css" />
+    <link rel="stylesheet" href="css/pages/login.css" />
     <script src="js/components/navigation.js" defer></script>
     <script src="js/components/footer.js" defer></script>
     <script type="module" src="js/pages/login.js" defer></script>
@@ -15,9 +16,11 @@
 
     <main>
       <section class="auth-section">
-        <h1>Login to Your Account</h1>
+        <header>
+          <h1>Login to Your Account</h1>
+        </header>
         <form id="loginForm" class="auth-form" novalidate>
-          <fieldset>
+          <fieldset class="auth-fieldset">
             <legend>Login Credentials</legend>
 
             <div class="form-group">
@@ -33,7 +36,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit">Login</button>
+              <button type="submit" class="primary-button">Login</button>
             </div>
           </fieldset>
 
