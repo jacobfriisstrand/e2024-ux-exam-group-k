@@ -13,16 +13,21 @@ fetch("navigation.html")
     const logoutLi = document.getElementById("logoutBtn").closest("li");
     const loginLi = document.getElementById("loginBtn").closest("li");
     const signupLi = document.getElementById("signupBtn").closest("li");
-    const adminLi = document.getElementById("adminIcon").closest("li");
+    const adminLi = document.getElementById("adminBtn").closest("li");
+    const profileIcon = document.getElementById("profileIcon");
 
-    // Show/hide buttons based on user login status
+    // Show/hide elements based on user login status
     const userId = sessionStorage.getItem("user_id");
     const isAdmin = sessionStorage.getItem("is_admin") === "true";
 
     const headerHeight = header.getBoundingClientRect().height;
     navList.style.maxHeight = `calc(100svh - ${headerHeight}px)`;
 
+    // Show the profile icon and logout button only when the user is logged in
+    profileIcon.style.display = userId ? "inline" : "none";
     logoutLi.style.display = userId ? "inline" : "none";
+
+    // Hide login and signup links when the user is logged in
     loginLi.style.display = signupLi.style.display = userId ? "none" : "inline";
     adminLi.style.display = isAdmin ? "inline" : "none";
 
