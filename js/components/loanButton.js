@@ -1,9 +1,12 @@
 import { handleLoan } from "../services/bookService.js";
+import { createPopover } from "../services/popoverService.js";
 
 export function createLoanButton(bookId) {
   const button = document.createElement("button");
   button.className = "primary-button loan-button";
   button.dataset.bookId = bookId;
+  button.dataset.message = "Book loaned successfully!"; // Default success message
+  button.dataset.type = "success"; // Default type
   button.innerHTML = `
     <span>Loan book</span>
     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -11,14 +14,18 @@ export function createLoanButton(bookId) {
     </svg>
   `;
 
-  button.addEventListener("click", async () => {
+  button.addEventListener("click", async (e) => {
     try {
       const success = await handleLoan(bookId);
       if (success) {
+        createPopover(); // Popover triggered without explicit params
         updateButtonToLoaned(button);
       }
     } catch (error) {
       console.error("Error in loan button click handler:", error);
+      button.dataset.message = "Failed to loan the book. Please try again later.";
+      button.dataset.type = "error";
+      createPopover(); // Popover for error case
     }
   });
 
