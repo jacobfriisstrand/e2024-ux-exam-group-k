@@ -27,8 +27,8 @@ function displayLoadingPlaceholders(count) {
 // Load and display books
 async function loadBooks() {
   try {
-    displayLoadingPlaceholders(4);
-    const books = await getBooks(4);
+    displayLoadingPlaceholders(5);
+    const books = await getBooks(5);
 
     if (!books || books.length === 0) {
       showError();
@@ -38,8 +38,24 @@ async function loadBooks() {
     // Clear existing content
     booksGrid.innerHTML = "";
 
-    // Create new book cards directly
-    books.forEach((book) => {
+    // Get random book for featured spot
+    const randomIndex = Math.floor(Math.random() * books.length);
+    const featuredBook = books[randomIndex];
+
+    // Remove featured book from regular display
+    const regularBooks = books.filter((_, index) => index !== randomIndex);
+
+    // Add featured book
+    const featuredElement = document.querySelector(".featured-book");
+    if (featuredElement) {
+      const featuredBookCard = createBookCard(featuredBook);
+      featuredBookCard.classList.add("loaded", "featured");
+      featuredElement.innerHTML = "";
+      featuredElement.appendChild(featuredBookCard);
+    }
+
+    // Create new book cards directly for remaining books
+    regularBooks.forEach((book) => {
       const bookCard = createBookCard(book);
       bookCard.classList.add("loaded");
       booksGrid.appendChild(bookCard);

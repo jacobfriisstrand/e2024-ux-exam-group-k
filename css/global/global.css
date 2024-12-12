@@ -95,6 +95,7 @@ a:not(.primary-button):not(.logo-container a) {
     height: 100%;
     object-fit: cover;
     aspect-ratio: var(--book-cover-aspect-ratio);
+    border-radius: var(--radius-sm);
   }
 
   .book-link {

@@ -98,6 +98,7 @@
   /********** Image **********/
   --cover-max: 19rem;
   --book-cover-aspect-ratio: 1/1.5;
+  --ar-4-3: 4 / 3;
 
   /********** Book card **********/
   --book-card-height: 400px;

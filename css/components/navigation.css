@@ -40,6 +40,7 @@ nav ul {
   right: 0;
   width: 100%;
   background-color: var(--green-400);
+  margin-top: -1px;
 }
 
 nav ul.show {
