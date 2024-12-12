@@ -1,4 +1,3 @@
-// Load the navigation into the placeholder
 fetch('navigation.html')
   .then(response => response.text())
   .then(data => {
@@ -10,11 +9,17 @@ fetch('navigation.html')
     const logoutBtn = document.getElementById('logoutBtn');
     const loginBtn = document.getElementById('loginBtn');
     const signupBtn = document.getElementById('signupBtn');
+    const adminIcon = document.getElementById('adminIcon'); // Admin icon
 
     // Show/hide buttons based on user login status
     const userId = sessionStorage.getItem('user_id'); // or localStorage.getItem('user_id');
+    const isAdmin = sessionStorage.getItem('is_admin') === 'true'; // Check admin status
+
     logoutBtn.style.display = userId ? 'inline' : 'none';
     loginBtn.style.display = signupBtn.style.display = userId ? 'none' : 'inline';
+
+    // Show/hide admin icon based on admin login status
+    adminIcon.style.display = isAdmin ? 'inline' : 'none';
 
     // Toggle the navigation menu and hamburger icon on click
     hamburgerBtn.addEventListener('click', () => {
