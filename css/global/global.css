@@ -30,34 +30,103 @@ body {
 
 .primary-button {
   background-color: var(--green-400);
-  color: var(--background-color);
+  color: var(--white);
   padding: var(--sp-12) var(--sp-20);
   border-radius: var(--radius-sm);
   transition: background-color var(--hover-transition);
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: var(--green-300);
     transition: background-color var(--hover-transition);
   }
 }
 
-.book-card {
+a:not(.primary-button):not(.logo-container a) {
   position: relative;
-  min-height: 400px;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 0;
+    height: 1px;
+
+    background-color: currentColor;
+    transition: width var(--hover-transition);
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}
+
+.svg-icon {
+  width: var(--svg-icon-size);
 }
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: repeat(4, min-content);
+  column-gap: var(--sp-44);
+  row-gap: var(--sp-44);
+}
+
+.book-card {
+  position: relative;
+  height: var(--book-card-height);
+  display: grid;
+  row-gap: var(--sp-8);
+  grid-template-rows: subgrid;
+  grid-row: span 4;
+
+  .book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .book-link {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-8);
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .author {
+    font-size: var(--fs-xxsmall-14);
+    font-weight: var(--fw-light);
+  }
+
+  .book-title {
+    font-size: var(--fs-small-18);
+    font-weight: var(--fw-normal);
+  }
+
+  .book-actions {
+    display: flex;
+    gap: var(--sp-8);
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.loan-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-8);
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .loading-placeholder {
-  position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  background: gray;
+  height: var(--book-card-height);
+  background: var(--green-200);
   animation: pulse 1.5s infinite ease-in-out;
 }
