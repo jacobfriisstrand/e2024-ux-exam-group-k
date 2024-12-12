@@ -4,6 +4,8 @@
 @import "../components/navigation.css";
 @import "../components/footer.css";
 
+/* ************* GLOBAL STYLES ************* */
+
 button:focus-visible,
 a:focus-visible {
   outline: var(--border-medium) solid currentColor;
@@ -52,6 +54,8 @@ body {
   }
 }
 
+/* ************* LINKS ************* */
+
 a:not(.primary-button):not(.logo-container a) {
   position: relative;
   &::before {
@@ -71,9 +75,13 @@ a:not(.primary-button):not(.logo-container a) {
   }
 }
 
+/* ************* SVG ICONS ************* */
+
 .svg-icon {
   width: var(--svg-icon-size);
 }
+
+/* *************  BOOKS ************* */
 
 .books-grid {
   display: grid;
@@ -88,7 +96,7 @@ a:not(.primary-button):not(.logo-container a) {
   display: grid;
   row-gap: var(--sp-8);
   grid-template-rows: subgrid;
-  grid-row: span 3;
+  grid-row: span 4;
 
   .book-cover {
     width: 100%;
@@ -124,6 +132,33 @@ a:not(.primary-button):not(.logo-container a) {
   }
 }
 
+/* *************  POPOVERS ************* */
+
+[popover] {
+  padding-block: var(--sp-12);
+  padding-inline: var(--sp-20);
+  border-radius: var(--radius-md);
+  background-color: var(--green-400);
+  border: none;
+  color: var(--white);
+
+  animation: fadeIn var(--hover-transition);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--sp-12));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* *************  LOAN BUTTON ************* */
+
 .loan-button {
   display: inline-flex;
   align-items: center;
@@ -135,6 +170,7 @@ a:not(.primary-button):not(.logo-container a) {
   }
 }
 
+/* ************* LOADING PLACEHOLDER ************* */
 .loading-placeholder {
   top: 0;
   left: 0;

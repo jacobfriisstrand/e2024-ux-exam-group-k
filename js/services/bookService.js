@@ -2,7 +2,6 @@ import { get, post } from "./apiService.js";
 import CONFIG from "../utils/config.js";
 import { createPopover } from "./popoverService.js"; // Hypothetical popover utility
 
-
 // TODO: remove simulation of error handling
 
 // Get random books
@@ -102,8 +101,7 @@ async function handleLoan(bookId, targetId) {
 
   // Check if user ID exists
   if (!userId) {
-    createPopover("You must be logged in to loan a book.", "error", targetId);
-    return false; // Explicitly stop execution here
+    return false; // Return false if not logged in
   }
 
   try {
@@ -114,19 +112,13 @@ async function handleLoan(bookId, targetId) {
 
     // Post the loan request
     await post(`${CONFIG.ENDPOINTS.USERS}/${userId}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
-
-    // If no error occurs, show success message
-    createPopover("Book loaned successfully!", "success", targetId);
     return true;
   } catch (error) {
-    // Catch and display errors
+    // Catch and log errors
     console.error("Error loaning book:", error);
-    createPopover("Failed to loan the book. Please try again later.", "error", targetId);
     return false;
   }
 }
-
-
 
 // Show all Loans as admin
 async function getAllLoans(bookId) {

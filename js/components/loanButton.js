@@ -5,8 +5,6 @@ export function createLoanButton(bookId) {
   const button = document.createElement("button");
   button.className = "primary-button loan-button";
   button.dataset.bookId = bookId;
-  button.dataset.message = "Book loaned successfully!"; // Default success message
-  button.dataset.type = "success"; // Default type
   button.innerHTML = `
     <span>Loan book</span>
     <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -18,14 +16,12 @@ export function createLoanButton(bookId) {
     try {
       const success = await handleLoan(bookId);
       if (success) {
-        createPopover(); // Popover triggered without explicit params
+        createPopover("Book loaned successfully! You will receive an email with the access link for the e-book.", "success", button);
         updateButtonToLoaned(button);
       }
     } catch (error) {
       console.error("Error in loan button click handler:", error);
-      button.dataset.message = "Failed to loan the book. Please try again later.";
-      button.dataset.type = "error";
-      createPopover(); // Popover for error case
+      createPopover("Failed to loan the book. Please try again later.", "error", button);
     }
   });
 
