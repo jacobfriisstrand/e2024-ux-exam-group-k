@@ -16,6 +16,7 @@ async function loadUserProfile() {
   */
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
 import { getUserProfile, updateUserProfile } from "../services/userService.js";
+import { deleteAccount } from "../services/userService.js";
 
 async function loadUserProfile() {
   const profileForm = document.getElementById("profileForm");
@@ -94,5 +95,23 @@ async function loadUserProfile() {
     profileForm.appendChild(errorDisplay);
   }
 }
+
+const deleteButton = document.getElementById("delete-profile");
+const userId = sessionStorage.getItem("user_id");
+
+deleteButton.addEventListener("click", async (e) => {
+  try {
+    const success = await deleteAccount(userId);
+    sessionStorage.removeItem("user_id");
+    sessionStorage.removeItem("user_email");
+    console.log("User deleted")
+    if (success) {
+      window.location.href = "/index.html"; // Redirect to /signup.html
+    }
+  } catch (error) {
+    console.error("Error deleting account:", error); // Handle errors
+  }
+});
+
 
 document.addEventListener("DOMContentLoaded", loadUserProfile);
