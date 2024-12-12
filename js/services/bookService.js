@@ -1,5 +1,7 @@
 import { get, post } from "./apiService.js";
 import CONFIG from "../utils/config.js";
+import { createPopover } from "./popoverService.js"; // Hypothetical popover utility
+
 
 // TODO: remove simulation of error handling
 
@@ -95,28 +97,36 @@ async function getAllPublishers() {
 }
 
 // Loan a book
-async function handleLoan(bookId) {
-  const userId = sessionStorage.getItem("user_id");
+async function handleLoan(bookId, targetId) {
+  const userId = sessionStorage.getItem(CONFIG.STORAGE_KEYS.USER_ID);
 
+  // Check if user ID exists
   if (!userId) {
-    alert("You must be logged in to loan a book.");
-    return false;
+    createPopover("You must be logged in to loan a book.", "error", targetId);
+    return false; // Explicitly stop execution here
   }
 
   try {
+    // Simulate API failure if configured
     if (CONFIG.SIMULATE_ERROR) {
       throw new Error("Simulated API failure");
     }
 
+    // Post the loan request
     await post(`${CONFIG.ENDPOINTS.USERS}/${userId}/${CONFIG.ENDPOINTS.BOOKS}/${bookId}`);
-    alert("Book loaned successfully!");
+
+    // If no error occurs, show success message
+    createPopover("Book loaned successfully!", "success", targetId);
     return true;
   } catch (error) {
+    // Catch and display errors
     console.error("Error loaning book:", error);
-    alert("Failed to loan the book. Please try again later.");
+    createPopover("Failed to loan the book. Please try again later.", "error", targetId);
     return false;
   }
 }
+
+
 
 // Show all Loans as admin
 async function getAllLoans(bookId) {
