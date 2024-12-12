@@ -1,8 +1,5 @@
-/* Mobile-first styling */
-:root {
-    font-family: var(--sans);
-    background-color: var(--background-color);
-    color: var(--text-black);
+  main{
+    margin: auto;
   }
   
   .book-details {
