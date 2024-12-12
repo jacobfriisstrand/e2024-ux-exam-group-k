@@ -45,9 +45,29 @@ async function populateDropdowns() {
   }
 }
 
+// Validate form inputs
+function validateForm(form) {
+  let isValid = true;
+  const inputs = form.querySelectorAll("input, select");
+
+  inputs.forEach((input) => {
+    const errorSpan = document.getElementById(`${input.id}Error`);
+    if (!input.checkValidity()) {
+      errorSpan.textContent = input.validationMessage;
+      isValid = false;
+    } else {
+      errorSpan.textContent = "";
+    }
+  });
+
+  return isValid;
+}
+
 // Handle book form submission
 addBookForm.onsubmit = async function (e) {
   e.preventDefault();
+  if (!validateForm(addBookForm)) return;
+
   const formData = new FormData(addBookForm);
 
   try {
@@ -67,6 +87,8 @@ addBookForm.onsubmit = async function (e) {
 // Handle author form submission
 addAuthorForm.onsubmit = async function (e) {
   e.preventDefault();
+  if (!validateForm(addAuthorForm)) return;
+
   const formData = new FormData(addAuthorForm);
 
   try {
@@ -86,6 +108,8 @@ addAuthorForm.onsubmit = async function (e) {
 // Handle publisher form submission
 addPublisherForm.onsubmit = async function (e) {
   e.preventDefault();
+  if (!validateForm(addPublisherForm)) return;
+
   const formData = new FormData(addPublisherForm);
 
   try {
@@ -104,8 +128,14 @@ addPublisherForm.onsubmit = async function (e) {
 
 // Show error message
 function showError(form, message) {
-  const errorDisplay = createErrorDisplay(message);
-  form.appendChild(errorDisplay);
+  let errorDisplay = form.querySelector('.error-display');
+  if (!errorDisplay) {
+    errorDisplay = document.createElement('div');
+    errorDisplay.className = 'error-display';
+    form.appendChild(errorDisplay);
+  }
+  errorDisplay.textContent = message;
+  errorDisplay.style.display = 'block';
 }
 
 // Initialize dropdowns on page load

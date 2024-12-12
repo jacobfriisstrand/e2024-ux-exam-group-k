@@ -13,34 +13,37 @@
   <body>
     <header id="navigation-placeholder"></header>
 
-    <div class="add-container">
-      <main>
+    <main>
+        <div class="add-container">
         <section class="add-section">
           <h1>Add New Book</h1>
           <form id="addBookForm" class="add-form" novalidate>
             <fieldset>
-              <legend>Book Details</legend>
               <div class="form-group">
                 <label for="bookTitle">Book Title</label>
-                <input type="text" id="bookTitle" name="title" required />
+                <input type="text" id="bookTitle" name="title" required aria-describedby="bookTitleError" />
+                <span id="bookTitleError" class="error-message" aria-live="polite"></span>
               </div>
               <div class="form-group">
                 <label for="author">Author</label>
-                <select id="author" name="author_id" required>
+                <select id="author" name="author_id" required aria-describedby="authorError">
                   <option value="">Select an author</option>
                 </select>
+                <span id="authorError" class="error-message" aria-live="polite"></span>
               </div>
               <div class="form-group">
                 <label for="publishingYear">Publishing Year</label>
-                <input type="text" id="publishingYear" name="publishing_year" required />
+                <input type="text" id="publishingYear" name="publishing_year" required aria-describedby="publishingYearError" />
+                <span id="publishingYearError" class="error-message" aria-live="polite"></span>
               </div>
               <div class="form-group">
                 <label for="publishingCompany">Publisher</label>
-                <select id="publishingCompany" name="publisher_id" required>
+                <select id="publishingCompany" name="publisher_id" required aria-describedby="publishingCompanyError">
                   <option value="">Select a publisher</option>
                 </select>
+                <span id="publishingCompanyError" class="error-message" aria-live="polite"></span>
               </div>
-              <button type="submit">Add Book</button>
+              <button type="submit" class="primary-button">Add Book</button>
             </fieldset>
           </form>
         </section>
@@ -49,16 +52,17 @@
           <h1>Add New Author</h1>
           <form id="addAuthorForm" class="add-form" novalidate>
             <fieldset>
-              <legend>Author Details</legend>
               <div class="form-group">
                 <label for="authorFirstName">First Name</label>
-                <input type="text" id="authorFirstName" name="first_name" required />
+                <input type="text" id="authorFirstName" name="first_name" required aria-describedby="authorFirstNameError" />
+                <span id="authorFirstNameError" class="error-message" aria-live="polite"></span>
               </div>
               <div class="form-group">
                 <label for="authorLastName">Last Name</label>
-                <input type="text" id="authorLastName" name="last_name" required />
+                <input type="text" id="authorLastName" name="last_name" required aria-describedby="authorLastNameError" />
+                <span id="authorLastNameError" class="error-message" aria-live="polite"></span>
               </div>
-              <button type="submit">Add Author</button>
+              <button type="submit" class="primary-button">Add Author</button>
             </fieldset>
           </form>
         </section>
@@ -67,18 +71,17 @@
           <h1>Add New Publisher</h1>
           <form id="addPublisherForm" class="add-form" novalidate>
             <fieldset>
-              <legend>Publisher Details</legend>
               <div class="form-group">
                 <label for="publisherName">Publisher Name</label>
-                <input type="text" id="publisherName" name="name" required />
+                <input type="text" id="publisherName" name="name" required aria-describedby="publisherNameError" />
+                <span id="publisherNameError" class="error-message" aria-live="polite"></span>
               </div>
-              <button type="submit">Add Publisher</button>
+              <button type="submit" class="primary-button">Add Publisher</button>
             </fieldset>
           </form>
         </section>
+      </div>
       </main>
-    </div>
-
     <footer id="footer-placeholder"></footer>
   </body>
 </html>

@@ -50,6 +50,7 @@
     border: none;
     box-sizing: border-box;
 }
+
 .form-group input:focus{
     border: solid 1px green;
 }

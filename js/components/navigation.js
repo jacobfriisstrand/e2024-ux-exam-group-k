@@ -23,12 +23,14 @@ fetch("navigation.html")
     const headerHeight = header.getBoundingClientRect().height;
     navList.style.maxHeight = `calc(100svh - ${headerHeight}px)`;
 
-    // Show the profile icon and logout button only when the user is logged in
-    profileIcon.style.display = userId ? "inline" : "none";
+    // Show the profile icon only when the user is logged in and not an admin
+    profileIcon.style.display = userId && !isAdmin ? "inline" : "none";
     logoutLi.style.display = userId ? "inline" : "none";
 
     // Hide login and signup links when the user is logged in
     loginLi.style.display = signupLi.style.display = userId ? "none" : "inline";
+
+    // Show the admin page link only for admins
     adminLi.style.display = isAdmin ? "inline" : "none";
 
     // Toggle the navigation menu and hamburger icon on click
