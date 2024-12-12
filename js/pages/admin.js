@@ -1,6 +1,7 @@
 import { post, get } from "../services/apiService.js";
 import CONFIG from "../utils/config.js";
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
+import { createPopover } from "../services/popoverService.js";
 
 // Get form elements
 const addBookForm = document.getElementById("addBookForm");
@@ -73,7 +74,7 @@ addBookForm.onsubmit = async function (e) {
   try {
     const response = await post("/admin/books", formData);
     if (response.book_id) {
-      alert("Book added successfully!");
+      createPopover("Book added successfully!", "success", addBookForm);
       addBookForm.reset();
     } else {
       throw new Error(response.error || "Failed to add book");
@@ -94,7 +95,7 @@ addAuthorForm.onsubmit = async function (e) {
   try {
     const response = await post("/admin/authors", formData);
     if (response.author_id) {
-      alert("Author added successfully!");
+      createPopover("Author added successfully!", "success", addAuthorForm);
       addAuthorForm.reset();
     } else {
       throw new Error(response.error || "Failed to add author");
@@ -115,7 +116,7 @@ addPublisherForm.onsubmit = async function (e) {
   try {
     const response = await post("/admin/publishers", formData);
     if (response.publisher_id) {
-      alert("Publisher added successfully!");
+      createPopover("Publisher added successfully!", "success", addPublisherForm);
       addPublisherForm.reset();
     } else {
       throw new Error(response.error || "Failed to add publisher");
@@ -126,16 +127,10 @@ addPublisherForm.onsubmit = async function (e) {
   }
 };
 
-// Show error message
+// Show error message using popover
 function showError(form, message) {
-  let errorDisplay = form.querySelector('.error-display');
-  if (!errorDisplay) {
-    errorDisplay = document.createElement('div');
-    errorDisplay.className = 'error-display';
-    form.appendChild(errorDisplay);
-  }
-  errorDisplay.textContent = message;
-  errorDisplay.style.display = 'block';
+  const targetElement = form.querySelector('.error-display') || form;
+  createPopover(message, 'error', targetElement);
 }
 
 // Initialize dropdowns on page load
