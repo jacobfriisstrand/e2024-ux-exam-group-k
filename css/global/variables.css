@@ -76,6 +76,9 @@
   --sp-200: 12.5rem;
 
   /********** Border **********/
+  --box-shadow: 0 var(--sp-4) var(--sp-12) rgba(0, 0, 0, 0.1);
+
+  /********** Border **********/
   --border-thin: 1px;
   --border-medium: 2px;
   --border-thick: 3px;
