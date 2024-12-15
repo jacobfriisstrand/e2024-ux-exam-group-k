@@ -1,22 +1,7 @@
-/* 
-import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
-
-async function loadUserProfile() {
-  const profileContainer = document.querySelector(".profile-container");
-
-  try {
-    const userData = await getUserProfile();
-    // Render profile...
-  } catch (error) {
-    const errorDisplay = createErrorDisplay(ERROR_MESSAGES.FETCH, loadUserProfile);
-    profileContainer.innerHTML = "";
-    profileContainer.appendChild(errorDisplay);
-  }
-}
-  */
 import { createErrorDisplay, ERROR_MESSAGES } from "../utils/errorHandling.js";
 import { getUserProfile, updateUserProfile } from "../services/userService.js";
 import { deleteAccount } from "../services/userService.js";
+import { createPopover } from "../services/popoverService.js";
 
 async function loadUserProfile() {
   const profileForm = document.getElementById("profileForm");
@@ -78,11 +63,17 @@ async function loadUserProfile() {
             userFirstNameDisplay.textContent = updatedUserData.first_name;
           }
 
+          // Show success popover
+          createPopover("Profile updated successfully!", "success", profileForm);
         } else {
           throw new Error("Failed to update profile");
         }
       } catch (updateError) {
         console.error("Error updating profile:", updateError);
+
+        // Show error popover
+        createPopover("Error updating profile. Please try again.", "error", profileForm);
+
         const errorDisplay = createErrorDisplay(ERROR_MESSAGES.UPDATE, loadUserProfile);
         profileForm.innerHTML = ""; // Clear the form for error display
         profileForm.appendChild(errorDisplay);
@@ -104,14 +95,24 @@ deleteButton.addEventListener("click", async (e) => {
     const success = await deleteAccount(userId);
     sessionStorage.removeItem("user_id");
     sessionStorage.removeItem("user_email");
-    console.log("User deleted")
+
     if (success) {
-      window.location.href = "/index.html"; // Redirect to /signup.html
+      // Show success popover
+      createPopover("Account deleted successfully.", "success", deleteButton);
+
+      // Delay redirect by 5 seconds
+      setTimeout(() => {
+        window.location.href = "/index.html";
+      }, 5000);
+    } else {
+      throw new Error("Deletion unsuccessful");
     }
   } catch (error) {
-    console.error("Error deleting account:", error); // Handle errors
+    console.error("Error deleting account:", error);
+
+    // Show error popover
+    createPopover("Error deleting account. Please try again.", "error", deleteButton);
   }
 });
-
 
 document.addEventListener("DOMContentLoaded", loadUserProfile);
