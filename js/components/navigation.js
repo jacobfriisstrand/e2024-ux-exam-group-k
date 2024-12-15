@@ -38,6 +38,11 @@ fetch("navigation.html")
       const isExpanded = navList.classList.toggle("show");
       hamburgerBtn.classList.toggle("open", isExpanded);
       hamburgerBtn.setAttribute("aria-expanded", isExpanded);
+
+      // Update aria-label based on the menu state
+      const newAriaLabel = isExpanded ? "Close menu" : "Open menu";
+      hamburgerBtn.setAttribute("aria-label", newAriaLabel);
+
       body.style.overflow = isExpanded ? "hidden" : "";
     });
 
@@ -47,6 +52,7 @@ fetch("navigation.html")
         navList.classList.remove("show");
         hamburgerBtn.classList.remove("open");
         hamburgerBtn.setAttribute("aria-expanded", "false");
+        hamburgerBtn.setAttribute("aria-label", "Open menu"); // Reset to "Open menu"
         body.style.overflow = "";
       }
     });

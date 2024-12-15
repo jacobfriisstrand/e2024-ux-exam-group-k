@@ -101,6 +101,9 @@ main {
   }
 }
 
+input {
+  border: var(--green-400) solid var(--border-thin);
+}
 /* ************* LINKS ************* */
 
 a:not(.primary-button):not(.logo-container a) {
