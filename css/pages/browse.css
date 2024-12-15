@@ -57,6 +57,10 @@ select {
     }
   }
 }
+.search-section summary,
+#authorFilter {
+  cursor: pointer;
+}
 
 .load-more-container {
   display: flex;
