@@ -1,0 +1,70 @@
+h1 {
+  margin-block: var(--sp-44);
+
+  font-size: var(--fs-xlarge-28);
+  font-weight: var(--fw-bold);
+}
+
+details {
+  background-color: var(--green-200);
+  padding: var(--sp-12);
+  border-radius: var(--radius-sm);
+  summary {
+    font-size: var(--fs-xsmall-12);
+    font-weight: var(--fw-semibold);
+    color: var(--primary-color);
+  }
+
+  margin-bottom: var(--sp-44);
+}
+
+input,
+select {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--green-200);
+  padding: var(--sp-12);
+}
+
+#searchForm {
+  display: grid;
+  column-gap: var(--sp-32);
+  row-gap: var(--sp-24);
+  margin-top: var(--sp-12);
+  grid-template-rows: min-content min-content;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  legend {
+    margin-bottom: var(--sp-8);
+    font-size: var(--fs-small-14);
+  }
+
+  .search-box {
+    display: grid;
+    gap: var(--sp-12);
+    grid-row: span 2;
+  }
+
+  .filter-box {
+    display: grid;
+    gap: var(--sp-12);
+    grid-row: span 2;
+
+    #authorFilter {
+      width: 100%;
+    }
+  }
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+
+  margin-top: var(--sp-64);
+
+  @media (min-width: 768px) {
+    margin-top: var(--sp-132);
+  }
+}

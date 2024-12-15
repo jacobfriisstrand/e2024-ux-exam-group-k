@@ -4,7 +4,11 @@ h2 {
 }
 
 section {
-  padding-block: var(--sp-44);
+  padding-block: var(--sp-64);
+
+  @media (min-width: 768px) {
+    padding-block: var(--sp-132);
+  }
 }
 
 .hero {
