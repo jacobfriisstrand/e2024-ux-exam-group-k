@@ -132,6 +132,6 @@ button#logoutBtn {
 
   nav a,
   #logoutBtn {
-    font-size: var(--fs-small-18);
+    font-size: var(--fs-xsmall-14);
   }
 }

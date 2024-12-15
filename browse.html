@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/global/global.css" />
+    <link rel="stylesheet" href="css/pages/browse.css" />
     <script type="module" src="js/components/navigation.js" defer></script>
     <script src="js/components/footer.js" defer></script>
     <script type="module" src="js/pages/browse.js" defer></script>
@@ -14,26 +15,36 @@
     <header id="navigation-placeholder"></header>
 
     <main>
-      <section class="search-section">
+      <header>
         <h1>Browse Books</h1>
-        <div class="search-controls">
-          <div class="search-box">
-            <input type="search" id="searchInput" placeholder="Search by title..." aria-label="Search books by title" />
-            <button id="searchBtn">Search</button>
-          </div>
-          <div class="filter-controls">
-            <select id="authorFilter" aria-label="Filter by author">
-              <option value="">All Authors</option>
-            </select>
-          </div>
-          <button id="clearFilterBtn">Clear Filter</button>
-        </div>
+      </header>
+      <section class="search-section">
+        <details>
+          <summary>Search and Filter</summary>
+          <form id="searchForm" role="search" aria-label="Search and filter books">
+            <fieldset class="search-box">
+              <legend>Search by title</legend>
+              <label for="searchInput" class="visually-hidden">Search books by title</label>
+              <input type="search" id="searchInput" name="search" aria-label="Search books by title" />
+              <button type="submit" id="searchBtn" class="primary-button">Search</button>
+            </fieldset>
+
+            <fieldset class="filter-box">
+              <legend>Filter by author</legend>
+              <label for="authorFilter" class="visually-hidden">Filter by author</label>
+              <select id="authorFilter" name="author" aria-label="Filter by author">
+                <option value="">All Authors</option>
+              </select>
+              <button type="reset" id="clearFilterBtn" class="primary-button">Clear Filters</button>
+            </fieldset>
+          </form>
+        </details>
       </section>
 
       <section id="search-results">
-        <div class="books-grid" aria-live="polite"></div>
+        <div class="books-grid" role="list" aria-live="polite"></div>
         <div class="load-more-container">
-          <button id="loadMoreBtn" class="load-more-btn">Load More Books</button>
+          <button id="loadMoreBtn" class="primary-button">Load More Books</button>
         </div>
       </section>
     </main>

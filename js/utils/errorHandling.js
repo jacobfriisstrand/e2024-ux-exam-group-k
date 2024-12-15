@@ -1,20 +1,12 @@
-// Error handling utility functions
-export function createErrorDisplay(message, retryCallback = null) {
+export function createErrorDisplay(message) {
   const errorContainer = document.createElement("div");
   errorContainer.className = "error-container";
 
   errorContainer.innerHTML = `
     <div class="error-content">
-      <div class="error-icon">⚠️</div>
       <p class="error-message">${message}</p>
-      ${retryCallback ? '<button class="retry-button">Try Again</button>' : ""}
     </div>
   `;
-
-  if (retryCallback) {
-    const retryButton = errorContainer.querySelector(".retry-button");
-    retryButton.addEventListener("click", retryCallback);
-  }
 
   return errorContainer;
 }

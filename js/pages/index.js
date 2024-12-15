@@ -67,6 +67,4 @@ async function loadBooks() {
 }
 
 // Start loading books when page loads
-document.addEventListener("DOMContentLoaded", () => {
-  loadBooks();
-});
+loadBooks();

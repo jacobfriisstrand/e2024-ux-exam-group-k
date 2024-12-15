@@ -3,9 +3,9 @@ import { createBookCard, createLoadingBookCard } from "../utils/domHelpers.js";
 import { createErrorDisplay, disableInteractiveElements, enableInteractiveElements, ERROR_MESSAGES } from "../utils/errorHandling.js";
 
 // Get DOM elements
+const searchForm = document.getElementById("searchForm");
 const booksGrid = document.querySelector(".books-grid");
 const searchInput = document.getElementById("searchInput");
-const searchBtn = document.getElementById("searchBtn");
 const authorSelect = document.getElementById("authorFilter");
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 
@@ -85,6 +85,21 @@ async function loadMoreBooks() {
   }
 }
 
+// Handle form submission
+async function handleFormSubmit(e) {
+  e.preventDefault(); // Prevent default form submission
+  const searchTerm = searchInput.value.trim();
+  const authorId = authorSelect.value;
+
+  if (authorId) {
+    await handleAuthorFilter();
+  } else if (searchTerm) {
+    await handleSearch();
+  } else {
+    loadBooks();
+  }
+}
+
 // Handle search
 async function handleSearch() {
   const searchTerm = searchInput.value.trim();
@@ -116,6 +131,13 @@ async function handleSearch() {
     showError("Search failed");
     loadMoreBtn.style.display = "none";
   }
+}
+
+// Handle form reset
+function handleFormReset() {
+  searchInput.value = "";
+  authorSelect.value = "";
+  loadBooks();
 }
 
 // Handle author filter
@@ -175,7 +197,7 @@ async function loadAuthors() {
     });
   } catch (error) {
     console.error("Error loading authors:", error);
-    showError("Could not load authors");
+    showError("Could not load authors. Please try again later.");
   }
 }
 
@@ -185,20 +207,20 @@ function clearAuthorFilter() {
   loadBooks(); // Reload all books
 }
 
+// Handle search input clear
+function handleSearchClear() {
+  if (searchInput.value.trim() === "") {
+    loadBooks();
+  }
+}
+
 // Initialize the page
-document.addEventListener("DOMContentLoaded", () => {
-  // Load initial books
-  loadBooks();
+loadBooks();
+loadAuthors();
 
-  // Load authors for filter
-  loadAuthors();
-
-  // Add event listeners
-  searchBtn.addEventListener("click", handleSearch);
-  authorSelect.addEventListener("change", handleAuthorFilter);
-  searchInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") handleSearch();
-  });
-  loadMoreBtn.addEventListener("click", loadMoreBooks);
-  document.getElementById("clearFilterBtn").addEventListener("click", clearAuthorFilter);
-});
+// Add event listeners
+searchForm.addEventListener("submit", handleFormSubmit);
+searchForm.addEventListener("reset", handleFormReset);
+authorSelect.addEventListener("change", handleFormSubmit);
+loadMoreBtn.addEventListener("click", loadMoreBooks);
+searchInput.addEventListener("search", handleSearchClear);
