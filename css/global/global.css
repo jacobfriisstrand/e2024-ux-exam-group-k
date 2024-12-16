@@ -101,9 +101,29 @@ main {
   }
 }
 
-input {
-  border: var(--green-400) solid var(--border-thin);
+/* ************* FORM STYLES ************* */
+
+.form-group {
+  margin-bottom: var(--sp-8);
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-8);
+  }
+
+  .form-group label {
+    display: block;
+    color: var(--text-black);
+  }
+
+  input {
+    border: var(--green-400) solid var(--border-thin);
+  }
 }
+
 /* ************* LINKS ************* */
 
 a:not(.primary-button):not(.logo-container a) {
