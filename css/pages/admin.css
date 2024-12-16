@@ -44,6 +44,7 @@
   padding: var(--sp-12);
   border-radius: var(--radius-sm);
   box-sizing: border-box;
+  border: none;
 }
 
 .add-container {
