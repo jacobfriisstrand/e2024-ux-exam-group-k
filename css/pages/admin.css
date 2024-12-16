@@ -8,7 +8,7 @@
     border-radius: var(--sp-8);
     box-sizing: border-box;
     background-color: var(--white);
-    border-radius: var(--sp-28);
+    border-radius: var(--radius-lg);
     width: 90%;
     margin-left: auto;
     margin-right: auto;
@@ -28,13 +28,6 @@
 
 .form-group {
   margin-bottom: var(--sp-28);
-}
-
-.form-group label {
-  font-weight: bold;
-  margin-bottom: var(--sp-8);
-  display: block;
-  color: var(--text-black);
 }
 
 .form-group input,

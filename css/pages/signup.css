@@ -4,10 +4,10 @@
   margin-top: var(--sp-28);
   margin-bottom: var(--sp-28);
   @media (min-width: 768px) {
-    border-radius: var(--sp-8);
+    border-radius: var(--radius-sm);
     box-sizing: border-box;
     background-color: var(--white);
-    border-radius: var(--sp-28);
+    border-radius: var(--radius-lg);
     box-shadow: var(--box-shadow);
     width: 70%;
     margin-left: auto;
@@ -41,13 +41,6 @@
 
 .form-group {
   margin-bottom: var(--sp-16);
-}
-
-.form-group label {
-  font-weight: bold;
-  margin-bottom: var(--sp-8);
-  display: block;
-  color: var(--text-black);
 }
 
 .form-group input {

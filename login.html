@@ -20,18 +20,21 @@
         </header>
         <form id="loginForm" class="auth-form" novalidate>
           <fieldset class="auth-fieldset">
-            <legend>Login Credentials</legend>
-
+            <legend class="visually-hidden">Login Credentials</legend>
             <div class="form-group">
-              <label for="email">Email</label>
+              <div>
+                <label for="email">Email</label>
+                <span id="emailError" class="error-message"></span>
+              </div>
               <input type="email" id="email" name="email" required aria-describedby="emailError" />
-              <span id="emailError" class="error-message" aria-live="polite"></span>
             </div>
 
             <div class="form-group">
-              <label for="password">Password</label>
+              <div>
+                <label for="password">Password</label>
+                <span id="passwordError" class="error-message"></span>
+              </div>
               <input type="password" id="password" name="password" required aria-describedby="passwordError" />
-              <span id="passwordError" class="error-message" aria-live="polite"></span>
             </div>
 
             <div class="form-group">
