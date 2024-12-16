@@ -44,9 +44,6 @@
   border-radius: var(--sp-8);
   box-sizing: border-box;
 }
-.form-group select {
-  border: none;
-}
 
 .add-container {
   display: grid;
