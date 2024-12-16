@@ -1,13 +1,15 @@
+@import "../components/form.css";
+
 .add-section {
   background-color: var(--white);
   border-radius: var(--sp-16);
   padding: var(--sp-32);
   margin-top: var(--sp-64);
   box-shadow: var(--box-shadow);
-  @media (min-width: 1024px) {
-    border-radius: var(--sp-8);
-    box-sizing: border-box;
-    background-color: var(--white);
+}
+
+@media (min-width: 1024px) {
+  .add-section {
     border-radius: var(--sp-28);
     width: 90%;
     margin-left: auto;
@@ -37,12 +39,11 @@
   color: var(--text-black);
 }
 
-.form-group input,
 .form-group select {
   width: 100%;
   padding: var(--sp-12);
-  border-radius: var(--sp-8);
   box-sizing: border-box;
+  border: none;
 }
 
 .add-container {

@@ -1,76 +1,17 @@
-.auth-section {
-  width: 100%;
-  padding: var(--sp-32);
-  margin-top: var(--sp-64);
-  @media (min-width: 768px) {
-    border-radius: var(--sp-8);
-    box-sizing: border-box;
-    background-color: var(--white);
-    border-radius: var(--sp-28);
-    box-shadow: var(--box-shadow);
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+@import "../components/form.css";
+
+@media (min-width: 768px) {
+  .login .auth-section {
+    border-radius: var(--radius-lg);
   }
-  @media (min-width: 1024px) {
+}
+
+@media (min-width: 1024px) {
+  .login .auth-section {
     width: 60%;
-    .primary-button {
-      width: 50%;
-      align-self: center;
-    }
-    p.auth-switch {
-      max-width: none;
-    }
   }
-}
-
-.auth-section h1 {
-  font-size: var(--fs-large-24);
-  margin-bottom: var(--sp-24);
-  color: var(--text-black);
-}
-
-.form-group {
-  margin-bottom: var(--sp-16);
-}
-
-.form-group label {
-  font-weight: bold;
-  margin-bottom: var(--sp-8);
-  display: block;
-  color: var(--text-black);
-}
-
-.form-group input {
-  width: 100%;
-  padding: var(--sp-12);
-  border-radius: var(--sp-8);
-  box-sizing: border-box;
-}
-
-legend {
-  margin-bottom: var(--sp-8);
-}
-
-.auth-fieldset {
-  display: flex;
-  flex-direction: column;
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-top: var(--sp-8);
-    @media (min-width: 768px) {
-    }
-  }
-  .primary-button {
-    margin-top: var(--sp-28);
-    margin-bottom: var(--sp-8);
-  }
-}
-
-.auth-switch {
-  text-align: center;
-  a {
-    font-weight: bold;
+  .login .primary-button {
+    width: 50%;
+    align-self: center;
   }
 }

@@ -1,91 +1,12 @@
-.auth-section {
-  width: 100%;
-  padding: var(--sp-32);
+@import "../components/form.css";
+
+.profile .auth-section {
   margin-top: var(--sp-28);
   margin-bottom: var(--sp-28);
-  @media (min-width: 768px) {
-    border-radius: var(--sp-8);
-    box-sizing: border-box;
-    background-color: var(--white);
-    border-radius: var(--sp-28);
-    box-shadow: 0 var(--sp-4) var(--sp-12) rgba(0, 115, 255, 0.1);
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media (min-width: 1024px) {
-    width: 90%;
-    padding: var(--sp-56);
-
-    .primary-button {
-      width: 50%;
-      align-self: center;
-    }
-    p.auth-switch {
-      max-width: none;
-    }
-    .grid-on-larger-screens {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--sp-40);
-      margin-top: var(--sp-28);
-    }
-  }
 }
 
-.auth-section h1 {
-  font-size: var(--fs-large-24);
-  margin-bottom: var(--sp-24);
-  color: var(--text-black);
-}
-
-.form-group {
-  margin-bottom: var(--sp-16);
-}
-
-.form-group label {
-  font-weight: bold;
-  margin-bottom: var(--sp-8);
-  display: block;
-  color: var(--text-black);
-}
-
-.form-group input {
-  width: 100%;
-  padding: var(--sp-12);
-  border-radius: var(--sp-8);
-  box-sizing: border-box;
-}
-.help-text {
-  font-size: var(--fs-xxsmall-14);
-}
-
-legend {
-  margin-bottom: var(--sp-8);
-}
-
-.auth-fieldset {
-  display: flex;
-  flex-direction: column;
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    margin-top: var(--sp-8);
-    @media (min-width: 768px) {
-    }
-  }
-  .primary-button {
-    margin-top: var(--sp-28);
-    margin-bottom: var(--sp-8);
-  }
-}
-
-.auth-switch {
-  text-align: center;
-  a {
-    font-weight: bold;
-    color: red;
-  }
+.profile .auth-switch a {
+  color: red;
 }
 
 #delete-profile {
@@ -97,6 +18,7 @@ legend {
   cursor: pointer;
   margin-inline: auto;
 }
+
 #delete-profile:hover {
   opacity: 80%;
 }
